@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Técnicas de Aseguramiento de la Calidad - 67 Patrol</title>
+  <!-- Fuentes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Estilos globales y específicos -->
+  <link rel="stylesheet" href="../estilo.css">
+  <link rel="stylesheet" href="tecnicas.css">
+</head>
+<body class="tech-body">
+
+  <!-- NAVBAR SUPERIOR -->
+  <header class="tech-navbar">
+    <div class="tech-logo" onclick="window.location.href='../index.html'">
+      <img src="../imagenes/Logo1.jpg" alt="Logo 67 Patrol">
+      <span>67 PATROL // QA DIVISION</span>
+    </div>
+    <a href="../index.html" class="tech-back-home">
+      <i class="fa-solid fa-arrow-left"></i> INICIO
+    </a>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="tech-main-container">
+    
+    <div class="tech-header-box">
+      <h1><i class="fa-solid fa-microchip"></i> TÉCNICAS DE ASEGURAMIENTO DE LA CALIDAD (US-03)</h1>
+      <p>Estudio analítico de los niveles de pruebas estructurales y tipos de validación (Caja Negra y Caja Blanca) en la Ingeniería de Software.</p>
+    </div>
+
+    <!-- SECCIÓN: NIVELES DE PRUEBAS -->
+    <h2 class="section-subtitle"><i class="fa-solid fa-layer-group"></i> Niveles de Pruebas de Software</h2>
+    <div class="tech-grid">
+      
+      <!-- Tarjeta 1: Unitarias -->
+      <div class="tech-card" data-card>
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-cubes"></i> Pruebas Unitarias</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <p class="tech-card-desc">Evaluación de componentes individuales, funciones, métodos o clases de código de forma completamente aislada del resto del sistema.</p>
+        <div class="tech-expandable-content">
+          <div class="tech-detail-row"><span>Nivel:</span> <strong>Base (Desarrollo / TDD)</strong></div>
+          <div class="tech-detail-row"><span>Objetivo:</span> <strong>Validar la lógica elemental de unidades mínimas</strong></div>
+          <div class="tech-detail-row"><span>Herramientas:</span> <strong>JUnit, PyTest, Jest, NUnit</strong></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2: Integración -->
+      <div class="tech-card" data-card>
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-network-wired"></i> Pruebas de Integración</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <p class="tech-card-desc">Verificación de la comunicación, sincronización e intercambio de datos correcto entre diferentes módulos interconectados o bases de datos.</p>
+        <div class="tech-expandable-content">
+          <div class="tech-detail-row"><span>Nivel:</span> <strong>Intermedio (Interfaces & APIs)</strong></div>
+          <div class="tech-detail-row"><span>Objetivo:</span> <strong>Detectar fallos de acoplamiento entre subsistemas</strong></div>
+          <div class="tech-detail-row"><span>Herramientas:</span> <strong>Postman, REST Assured, Testcontainers</strong></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3: Sistema -->
+      <div class="tech-card" data-card>
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-desktop"></i> Pruebas de Sistema</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <p class="tech-card-desc">Evaluación global del software completamente integrado para validar que se comporta de acuerdo con los requerimientos funcionales y no funcionales.</p>
+        <div class="tech-expandable-content">
+          <div class="tech-detail-row"><span>Nivel:</span> <strong>Global / End-to-End (E2E)</strong></div>
+          <div class="tech-detail-row"><span>Objetivo:</span> <strong>Certificar el comportamiento operativo completo</strong></div>
+          <div class="tech-detail-row"><span>Herramientas:</span> <strong>Cypress, Playwright, Selenium</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SECCIÓN: TIPOS DE PRUEBAS -->
+    <h2 class="section-subtitle" style="margin-top: 3.5rem;"><i class="fa-solid fa-code-compare"></i> Tipos de Pruebas (Estructurales y Funcionales)</h2>
+    <div class="tech-grid">
+      
+      <!-- Tarjeta 4: Caja Negra -->
+      <div class="tech-card" data-card>
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-box-archive"></i> Pruebas de Caja Negra</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <p class="tech-card-desc">Diseño de casos de prueba basados estrictamente en las entradas y salidas funcionales, sin examinar la arquitectura o código interno.</p>
+        <div class="tech-expandable-content">
+          <div class="tech-detail-row"><span>Técnica:</span> <strong>Partición de equivalencia y valores límite</strong></div>
+          <div class="tech-detail-row"><span>Enfoque:</span> <strong>Perspectiva del usuario final y requerimientos</strong></div>
+          <div class="tech-detail-row"><span>Ventaja:</span> <strong>Independencia del código fuente</strong></div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 5: Caja Blanca -->
+      <div class="tech-card" data-card>
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-code"></i> Pruebas de Caja Blanca</h3>
+          <i class="fa-solid fa-chevron-down toggle-icon"></i>
+        </div>
+        <p class="tech-card-desc">Análisis profundo enfocado en la estructura lógica interna, rutas de ejecución, sentencias, bucles y flujos de decisión del código.</p>
+        <div class="tech-expandable-content">
+          <div class="tech-detail-row"><span>Técnica:</span> <strong>Cobertura de ramas, sentencias y caminos</strong></div>
+          <div class="tech-detail-row"><span>Enfoque:</span> <strong>Perspectiva técnica y de calidad estructural</strong></div>
+          <div class="tech-detail-row"><span>Ventaja:</span> <strong>Máxima detección de código muerto o fallos ocultos</strong></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA CON TARJETAS DEL EQUIPO DE PROYECTO -->
+  <footer class="team-footer">
+    <div class="footer-header">
+      <h3><i class="fa-solid fa-users-gear"></i> EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h3>
+      <p>Créditos y roles oficiales de los participantes del proyecto educativo</p>
+    </div>
+
+    <div class="team-cards-grid">
+      
+      <!-- Participante 1 -->
+      <div class="team-card">
+        <div class="member-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h4>Juan Altomare</h4>
+        <span class="member-role">Diseñador</span>
+      </div>
+
+      <!-- Participante 2 -->
+      <div class="team-card">
+        <div class="member-icon"><i class="fa-solid fa-bug-slash"></i></div>
+        <h4>Arias Morena</h4>
+        <span class="member-role">Tester</span>
+      </div>
+
+      <!-- Participante 3 -->
+      <div class="team-card highlight-member">
+        <div class="member-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h4>Fran Ainara</h4>
+        <span class="member-role">Diseñadora y Programadora</span>
+      </div>
+
+      <!-- Participante 4 -->
+      <div class="team-card">
+        <div class="member-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+        <h4>Leiva Dana</h4>
+        <span class="member-role">Tester</span>
+      </div>
+
+      <!-- Participante 5 -->
+      <div class="team-card highlight-member">
+        <div class="member-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h4>Resoagli Bautista</h4>
+        <span class="member-role">Scrum Master y Programador</span>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="tecnicas.js"></script>
+</body>
+</html>

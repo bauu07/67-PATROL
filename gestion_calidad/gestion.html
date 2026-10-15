@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>67 PATROL - Gestión y Aseguramiento Avanzado</title>
+  
+  <!-- Fuentes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Hoja de Estilos Separada -->
+  <link rel="stylesheet" href="gestion.css">
+</head>
+<body class="tech-body">
+
+  <!-- BACKGROUND MATRIX / GRID EFFECTS -->
+  <div class="cyber-grid"></div>
+  <div class="scanlines"></div>
+
+  <!-- NAVBAR TOP -->
+  <header class="cyber-navbar">
+    <a href="../index.html" class="brand-logo" id="btnLogoHome">
+      <div class="logo-shield">
+        <img src="../imagenes/Logo1.jpg" alt="67 Patrol Logo" class="custom-logo">
+      </div>
+      <div class="logo-info">
+        <span class="brand-name">67 PATROL</span>
+        <span class="brand-status"><span class="status-dot pulsing"></span> QA CORE ENGINE v3.4 // SECURE</span>
+      </div>
+    </a>
+
+    <div class="nav-controls">
+      <div class="live-clock" id="liveClock">00:00:00 UTC</div>
+      <button class="sys-menu-trigger" id="btnOpenDrawer">
+        <i class="fa-solid fa-terminal"></i>
+        <span>SISTEMA MENU</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MENÚ DESPLEGABLE LATERAL (DRAWER) -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="menu-container" id="menuDrawer">
+    <button class="close-btn" id="btnCloseDrawer"><i class="fa-solid fa-xmark"></i></button>
+    
+    <nav class="menu-nav">
+      <div class="dropdown-menu-item">
+        <a href="gestion.html" class="menu-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+          <i class="fa-solid fa-chevron-down arrow-icon"></i>
+        </a>
+        <div class="submenu-container">
+          <a href="tecnicas.html" class="submenu-item">
+            <i class="fa-solid fa-list-check"></i>
+            <span>Técnicas de Aseguramiento</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="../procesos_desarrollo/proceso.html" class="menu-item">
+        <i class="fa-solid fa-diagram-project"></i>
+        <span>PROCESOS DE DESARROLLO</span>
+      </a>
+
+      <a href="../metodologias_agiles/metodologias.html" class="menu-item">
+        <i class="fa-solid fa-bolt"></i>
+        <span>METODOLOGÍAS ÁGILES</span>
+      </a>
+
+      <a href="../recursos_aprendizajes/recurso.html" class="menu-item">
+        <i class="fa-solid fa-book"></i>
+        <span>RECURSOS Y APRENDIZAJE</span>
+      </a>
+
+      <a href="../herramientas_interactivas/herramientas.html" class="menu-item">
+        <i class="fa-solid fa-sliders"></i>
+        <span>HERRAMIENTAS INTERACTIVAS</span>
+      </a>
+
+      <a href="../nosotros.html" class="menu-item">
+        <i class="fa-solid fa-users"></i>
+        <span>SOBRE NOSOTROS & CONTACTO</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="tech-main-container">
+
+    <section class="tech-header-box">
+      <div class="tech-header-tag">
+        // EXPEDIENTE TÉCNICO DE INGENIERÍA DE SOFTWARE
+      </div>
+      <h1>
+        <i class="fa-solid fa-shield-halved"></i> GESTIÓN Y ASEGURAMIENTO INTEGRAL DE LA CALIDAD
+      </h1>
+      <p>
+        Plataforma analítica avanzada para el estudio exhaustivo de modelos normativos (ISO/IEC 9126 e ISO/IEC 25000 SQuaRE), telemetría de código, métricas de defectos (DRE, Complejidad Ciclomática) y arquitectura estratificada de pruebas.
+      </p>
+
+      <div class="tech-badges-row">
+        <div class="tech-badge-item">
+          <strong>ISO/IEC 25000</strong>
+          <span>Estándar SQuaRE Global</span>
+        </div>
+        <div class="tech-badge-item">
+          <strong>McCabe Metrics</strong>
+          <span>Análisis Ciclomático Estructural</span>
+        </div>
+        <div class="tech-badge-item">
+          <strong>4 Niveles QA</strong>
+          <span>Pirámide de Validación</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÓDULO 01 -->
+    <div class="module-title-container">
+      <div class="module-tag">MÓDULO 01 // MARCO TEÓRICO Y NORMATIVO</div>
+      <h2 class="section-subtitle">
+        <i class="fa-solid fa-book-bookmark"></i> EVOLUCIÓN NORMATIVA: ISO 9126 VS. ISO 25000 (SQuaRE)
+      </h2>
+    </div>
+
+    <div class="tech-grid">
+      <!-- Tarjeta 1 -->
+      <div class="tech-card">
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-landmark"></i> ISO/IEC 9126 (1991-2001)</h3>
+          <span class="card-badge">LEGADO CLÁSICO</span>
+        </div>
+        <p class="tech-card-desc">
+          Estableció el primer modelo formal de calidad del software estructurado en 6 características troncales aplicadas tanto a la evaluación interna como externa del producto.
+        </p>
+        <div class="tech-card-footer-info">
+          <div class="tech-detail-row"><strong>Características:</strong> Funcionalidad, Fiabilidad, Usabilidad, Eficiencia, Mantenibilidad, Portabilidad.</div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 2 -->
+      <div class="tech-card">
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-shield-halved"></i> ISO/IEC 25000 SQuaRE</h3>
+          <span class="card-badge emerald-badge">ESTÁNDAR MODULAR</span>
+        </div>
+        <p class="tech-card-desc">
+          Reemplazo moderno que unifica criterios mediante un sistema de divisiones (2500n a 2504n), integrando explícitamente la Seguridad y la Compatibilidad.
+        </p>
+        <div class="tech-card-footer-info">
+          <div class="tech-detail-row"><strong>Gestión de Calidad:</strong> 2500n</div>
+          <div class="tech-detail-row"><strong>Modelo de Calidad:</strong> 2501n</div>
+          <div class="tech-detail-row"><strong>Medición y Requisitos:</strong> 2502n-3n</div>
+        </div>
+      </div>
+
+      <!-- Tarjeta 3 -->
+      <div class="tech-card">
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-triangle-exclamation"></i> QA vs. QC vs. Testing</h3>
+          <span class="card-badge orange-badge">GOBIERNO QA</span>
+        </div>
+        <p class="tech-card-desc">
+          Delimitación estricta de dominios para optimizar la gobernanza del ciclo de vida del software (SDLC) y evitar la superposición de roles operativos.
+        </p>
+        <div class="tech-card-footer-info">
+          <div class="tech-detail-row"><strong>QA:</strong> Proceso preventivo sistémico.</div>
+          <div class="tech-detail-row"><strong>QC:</strong> Verificación de calidad del entregable.</div>
+          <div class="tech-detail-row"><strong>Testing:</strong> Ejecución y detección de fallos.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 02 -->
+    <div class="module-title-container">
+      <div class="module-tag">MÓDULO 02 // INGENIERÍA CUANTITATIVA</div>
+      <h2 class="section-subtitle">
+        <i class="fa-solid fa-chart-line"></i> MÉTRICAS DE CÓDIGO Y EFICIENCIA DE DEFECTOS (DRE)
+      </h2>
+    </div>
+
+    <div class="tech-grid">
+      <!-- Complejidad Ciclomática -->
+      <div class="tech-card">
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-code-branch"></i> Complejidad Ciclomática V(G)</h3>
+          <span class="card-badge">McCabe (1976)</span>
+        </div>
+        <p class="tech-card-desc">
+          Mide la complejidad estructural cuantitativa del código fuente contando el número de caminos linealmente independientes a través del grafo de flujo de control.
+        </p>
+        <div class="code-formula-box">
+          V(G) = E - N + 2P
+        </div>
+        <div class="metric-legend">
+          <div><span style="color: #00ff88;">●</span> 1–10: Código estructurado, bajo riesgo.</div>
+          <div><span style="color: #ffbb00;">●</span> 11–20: Complejidad moderada, riesgo medio.</div>
+          <div><span style="color: #ff1e38;">●</span> &gt; 50: Código altamente inestable y propenso a fallos.</div>
+        </div>
+      </div>
+
+      <!-- DRE -->
+      <div class="tech-card">
+        <div class="tech-card-header">
+          <h3><i class="fa-solid fa-bullseye"></i> Eficiencia de Detección (DRE)</h3>
+          <span class="card-badge emerald-badge">EFICACIA QA</span>
+        </div>
+        <p class="tech-card-desc">
+          Evalúa la capacidad del equipo de desarrollo y QA para capturar errores antes de que el software sea liberado al entorno de producción.
+        </p>
+        <div class="code-formula-box">
+          DRE = B / (B + C) * 100%
+        </div>
+        <div class="metric-legend-text">
+          Donde <strong>B</strong> = Errores detectados antes de entrega, <strong>C</strong> = Errores reportados por producción.
+        </div>
+      </div>
+    </div>
+
+    <!-- MÓDULO 03 -->
+    <div class="module-title-container">
+      <div class="module-tag">MÓDULO 03 // ARQUITECTURA DE VALIDACIÓN</div>
+      <h2 class="section-subtitle">
+        <i class="fa-solid fa-layer-group"></i> PIRÁMIDE Y NIVELES DE PRUEBAS DEL SOFTWARE
+      </h2>
+    </div>
+
+    <!-- Tabla de Niveles QA -->
+    <div class="tech-card qa-table-container">
+      <div class="qa-table-header">
+        <div>Nivel de Validación</div>
+        <div>Alcance y Componentes</div>
+        <div>Herramientas Estándar</div>
+        <div>Objetivo Técnico Principal</div>
+      </div>
+
+      <div class="qa-table-row">
+        <div><strong class="qa-level-tag">NIVEL 01</strong> Pruebas Unitarias</div>
+        <div class="qa-muted">Funciones, métodos, clases y algoritmos individuales aislados.</div>
+        <div>JUnit, Jest, PyTest, NUnit</div>
+        <div class="qa-muted">Verificar la corrección lógica elemental de fragmentos mínimos.</div>
+      </div>
+
+      <div class="qa-table-row">
+        <div><strong class="qa-level-tag">NIVEL 02</strong> Pruebas de Integración</div>
+        <div class="qa-muted">Comunicación entre módulos, llamadas REST APIs y bases de datos.</div>
+        <div>Postman, REST Assured, Testcontainers</div>
+        <div class="qa-muted">Garantizar la sincronización y transferencia correcta de datos.</div>
+      </div>
+
+      <div class="qa-table-row">
+        <div><strong class="qa-level-tag">NIVEL 03</strong> Pruebas de Sistema (E2E)</div>
+        <div class="qa-muted">Flujos de usuario completos simulados en interfaces gráficas/navegador.</div>
+        <div>Cypress, Playwright, Selenium</div>
+        <div class="qa-muted">Validar el comportamiento integral emulando interacciones reales.</div>
+      </div>
+
+      <div class="qa-table-row last-row">
+        <div><strong class="qa-level-tag">NIVEL 04</strong> Pruebas de Aceptación (UAT)</div>
+        <div class="qa-muted">Validación de criterios de negocio funcionales junto al cliente o PO.</div>
+        <div>Cucumber, SpecFlow, Criterios BDD</div>
+        <div class="qa-muted">Certificar formalmente que el sistema satisface las metas operativas.</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA CON TARJETAS DEL EQUIPO UNIFORMES -->
+  <footer class="team-footer">
+    <div class="footer-header">
+      <h3><i class="fa-solid fa-users-gear"></i> EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h3>
+      <p>Créditos y roles oficiales de los participantes del proyecto educativo</p>
+    </div>
+
+    <div class="team-cards-grid">
+      <!-- Juan Altomare -->
+      <div class="team-card-member">
+        <div class="member-icon"><i class="fa-solid fa-pen-nib"></i></div>
+        <h4>Juan Altomare</h4>
+        <span class="member-role">Diseñador</span>
+      </div>
+
+      <!-- Arias Morena -->
+      <div class="team-card-member">
+        <div class="member-icon"><i class="fa-solid fa-bug-slash"></i></div>
+        <h4>Arias Morena</h4>
+        <span class="member-role">Tester</span>
+      </div>
+
+      <!-- Fran Ainara -->
+      <div class="team-card-member">
+        <div class="member-icon"><i class="fa-solid fa-laptop-code"></i></div>
+        <h4>Fran Ainara</h4>
+        <span class="member-role">Diseñadora y Programadora</span>
+      </div>
+
+      <!-- Leiva Dana -->
+      <div class="team-card-member">
+        <div class="member-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+        <h4>Leiva Dana</h4>
+        <span class="member-role">Tester</span>
+      </div>
+
+      <!-- Resoagli Bautista -->
+      <div class="team-card-member">
+        <div class="member-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <h4>Resoagli Bautista</h4>
+        <span class="member-role">Scrum Master y Programador</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="gestion.js"></script>
+</body>
+</html>

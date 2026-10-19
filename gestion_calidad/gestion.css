@@ -1,0 +1,126 @@
+/* ESTILOS DEL MENÚ LATERAL (DRAWER) */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1001;
+}
+
+.drawer-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-container {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100vh;
+  background: rgba(10, 20, 12, 0.98);
+  border-left: 1px solid var(--border-card);
+  padding: 2rem 1.5rem;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1002;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.menu-container.active {
+  right: 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  float: right;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: var(--emerald-neon);
+}
+
+.menu-nav {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.8rem 1rem;
+  color: var(--text-main);
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
+}
+
+.menu-item i {
+  color: var(--emerald-neon);
+}
+
+.menu-item:hover {
+  background: rgba(0, 255, 136, 0.08);
+  border-color: var(--border-card);
+  color: var(--emerald-neon);
+}
+
+.dropdown-menu-item {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-menu-item .arrow-icon {
+  margin-left: auto;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.submenu-container {
+  max-height: 0;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  transition: max-height 0.3s ease-in-out;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--emerald-neon);
+  margin-left: 1rem;
+}
+
+.dropdown-menu-item:hover .submenu-container {
+  max-height: 120px;
+}
+
+.dropdown-menu-item:hover .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.submenu-item:hover {
+  color: var(--emerald-neon);
+  background: rgba(0, 255, 136, 0.05);
+}

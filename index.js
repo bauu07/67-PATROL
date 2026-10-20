@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoHome = document.getElementById("logoHome");
 
   function openMenu() {
-    menuContainer.classList.add("active");
-    drawerOverlay.classList.add("active");
+    if (menuContainer) menuContainer.classList.add("active");
+    if (drawerOverlay) drawerOverlay.classList.add("active");
   }
 
   function closeMenu() {
-    menuContainer.classList.remove("active");
-    drawerOverlay.classList.remove("active");
+    if (menuContainer) menuContainer.classList.remove("active");
+    if (drawerOverlay) drawerOverlay.classList.remove("active");
   }
 
   if (menuOpenBtn) menuOpenBtn.addEventListener("click", openMenu);

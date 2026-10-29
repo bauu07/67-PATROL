@@ -3,426 +3,272 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>67 PATROL - Procesos de Desarrollo y SDLC</title>
-  
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+  <title>67 Patrol - Ciclo de Vida del Software (SDLC)</title>
   <link rel="stylesheet" href="proceso.css">
+  <!-- FontAwesome 6 para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- NAVBAR FLOTANTE CON LOGO SOLICITADO -->
-  <header class="app-navbar">
-    <div class="brand-area" id="brandLogo">
-      <div class="logo-box">
-        <!-- SVG Vectorial que replica exactamente el logo proporcionado de 67 Patrol -->
-        <svg viewBox="0 0 200 220" width="36" height="36" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="100,15 175,55 175,145 100,185 25,145 25,55" />
-          <path d="M 60,75 L 100,50 L 140,75 L 140,115 L 100,140 L 60,115 Z" />
-          <circle cx="80" cy="85" r="5" fill="currentColor" />
-          <circle cx="120" cy="85" r="5" fill="currentColor" />
-          <path d="M 75,100 Q 100,110 125,100" stroke-width="6"/>
-          <path d="M 40,120 L 75,140 L 40,165 M 160,120 L 125,140 L 160,165" />
-        </svg>
-      </div>
-      <div class="brand-text">
-        <span class="company-name">67 PATROL</span>
-        <span class="system-tag">ENGINEERING PROCESSES</span>
-      </div>
+  <!-- Encabezado -->
+  <header class="header-bar">
+    <div class="logo-container">
+      <img src="../imagenes/Logo1.jpg" alt="Logo 67 Patrol" class="header-logo-img">
+      <span class="logo-text">67 PATROL</span>
     </div>
-
-    <div class="nav-right">
-      <div class="status-indicator">
-        <span class="dot"></span> METODOLOGÍAS DE INGENIERÍA
-      </div>
-      <button class="nav-toggle-btn" id="openMenuBtn" aria-label="Abrir Menú">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
   </header>
 
-  <!-- OVERLAY Y DRAWER LATERAL DE NAVEGACIÓN -->
+  <!-- Menú Lateral Desplegable (Drawer) con Submenú -->
+  <nav class="nav-drawer" id="navDrawer">
+    <div class="drawer-header">
+      <button class="close-drawer" id="closeDrawer" aria-label="Cerrar menú">&times;</button>
+    </div>
+    <ul class="drawer-menu">
+      <li>
+        <a href="index.html" class="active">
+          <i class="fa-solid fa-house"></i>
+          <span>INICIO</span>
+        </a>
+      </li>
+      <li>
+        <a href="gestion_calidad/gestion.html">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>GESTIÓN DE LA CALIDAD</span>
+        </a>
+      </li>
+      <li>
+        <a href="Tecnicas_aseguramiento/tecnicas.html">
+          <i class="fa-solid fa-list-check"></i>
+          <span>TÉCNICAS DE ASEGURAMIENTO</span>
+        </a>
+      </li>
+      <li>
+        <a href="procesos_desarrollo/proceso.html">
+          <i class="fa-solid fa-code-branch"></i>
+          <span>PROCESOS DE DESARROLLO</span>
+        </a>
+      </li>
+      <!-- Modelos Tradicionales removido -->
+      <li>
+        <a href="metodologias_agiles/metodologias.html">
+          <i class="fa-solid fa-bolt"></i>
+          <span>METODOLOGÍAS ÁGILES</span>
+        </a>
+      </li>
+      <li>
+        <a href="metodologias_agiles/metodologias_detalle.html">
+          <i class="fa-solid fa-diagram-next"></i>
+          <span>METODOLOGÍAS EN DETALLE</span>
+        </a>
+      </li>
+      <li>
+        <a href="recursos_aprendizajes/recurso.html">
+          <i class="fa-solid fa-spell-check"></i>
+          <span>GLOSARIO A-Z</span>
+        </a>
+      </li>
+      <li>
+        <a href="recursos_aprendizajes/faq.html">
+          <i class="fa-solid fa-circle-question"></i>
+          <span>PREGUNTAS FRECUENTES (FAQ)</span>
+        </a>
+      </li>
+      <li>
+        <a href="recursos_aprendizajes/enlaces.html">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          <span>ENLACES DE INTERÉS</span>
+        </a>
+      </li>
+      <li>
+        <a href="herramientas_interactivas/ejercicios.html">
+          <i class="fa-solid fa-laptop-code"></i>
+          <span>EJERCICIOS Y CASOS PRÁCTICOS</span>
+        </a>
+      </li>
+      <li>
+        <a href="herramientas_interactivas/comparador.html">
+          <i class="fa-solid fa-table-columns"></i>
+          <span>COMPARADOR DE METODOLOGÍAS</span>
+        </a>
+      </li>
+      <li>
+        <a href="herramientas_interactivas/encuesta.html">
+          <i class="fa-solid fa-square-poll-vertical"></i>
+          <span>ENCUESTA METODOLÓGICA</span>
+        </a>
+      </li>
+      <li>
+        <a href="#equipo">
+          <i class="fa-solid fa-users"></i>
+          <span>SOBRE NOSOTROS</span>
+        </a>
+      </li>
+      <li>
+        <a href="formulario_contacto/contacto.html">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>CONTACTO</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
   <div class="drawer-overlay" id="drawerOverlay"></div>
-
-  <aside class="nav-drawer" id="navDrawer">
-    <div class="drawer-top">
-      <div class="drawer-brand">
-        <i class="fa-solid fa-diagram-project"></i> MÓDULOS DE PROCESO
-      </div>
-      <button class="drawer-close" id="closeMenuBtn" aria-label="Cerrar Menú">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-
-    <nav class="drawer-links">
-        <a href="/inicio/index/index.html" class="menu-link">
-        <i class="fa-solid fa-house"></i>
-        <span>INICIO</span>
-        <i class="fa-solid fa-chevron-right arrow"></i>
-      </a>
-      <a href="#hero" class="d-link active">
-        <i class="fa-solid fa-compass"></i>
-        <span>PANORAMA DEL SDLC</span>
-      </a>
-      <a href="#etapas" class="d-link">
-        <i class="fa-solid fa-list-check"></i>
-        <span>6 ETAPAS DEL CICLO DE VIDA</span>
-      </a>
-      <a href="#tradicionales" class="d-link">
-        <i class="fa-solid fa-sitemap"></i>
-        <span>MODELOS TRADICIONALES</span>
-      </a>
-      <a href="#comparativa" class="d-link">
-        <i class="fa-solid fa-table-columns"></i>
-        <span>COMPARATIVA Y SELECCIÓN</span>
-      </a>
-    </nav>
-
-    <div class="drawer-bottom">
-      <span>67 Patrol Process Framework v3.0</span>
-    </div>
-  </aside>
-
-  <!-- CONTENIDO PRINCIPAL DE LA PÁGINA -->
-  <main class="page-container">
-
-    <!-- HERO SECTION -->
-    <section class="hero-block" id="hero">
-      <div class="hero-badge">PROCESOS DE DESARROLLO DE SOFTWARE</div>
-      <h1 class="hero-headline">CICLO DE VIDA DEL DESARROLLO (SDLC)</h1>
-      <p class="hero-subtext">
-        El conjunto de etapas secuenciales e iterativas que organizan la construcción de software desde la concepción del requisito hasta su mantenimiento continuo.
+  
+  <!-- Contenido Principal SDLC -->
+  <main class="container">
+    <section class="sdlc-header">
+      <span class="badge-header">QA & SDLC FRAMEWORK</span>
+      <h1>Ciclo de Vida del Desarrollo de Software</h1>
+      <p>
+        El SDLC (Software Development Life Cycle) define la estructura metodológica empleada en la construcción, 
+        evaluación y entrega de software de alta calidad dentro de 67 Patrol.
       </p>
-
-      <div class="sdlc-pipeline">
-        <div class="pipe-node active" data-step="1">01. Análisis</div>
-        <div class="pipe-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="pipe-node" data-step="2">02. Diseño</div>
-        <div class="pipe-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="pipe-node" data-step="3">03. Desarrollo</div>
-        <div class="pipe-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="pipe-node" data-step="4">04. QA / Pruebas</div>
-        <div class="pipe-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="pipe-node" data-step="5">05. Despliegue</div>
-        <div class="pipe-arrow"><i class="fa-solid fa-chevron-right"></i></div>
-        <div class="pipe-node" data-step="6">06. Mantenimiento</div>
-      </div>
     </section>
 
-    <!-- ETAPAS DEL SDLC (VISOR INTERACTIVO PASO A PASO) -->
-    <section class="section-block" id="etapas">
-      <div class="block-header">
-        <span class="block-num">01 / ETAPAS CLAVE</span>
-        <h2 class="block-title">DESGLOSE DEL CICLO SDLC</h2>
-      </div>
+    <!-- Barra de Progreso del Timeline -->
+    <div class="timeline-progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
 
-      <div class="stage-viewer">
-        <div class="stage-tabs">
-          <button class="stage-tab-btn active" data-stage="1">
-            <span class="num">01</span> Análisis y Requisitos
-          </button>
-          <button class="stage-tab-btn" data-stage="2">
-            <span class="num">02</span> Diseño y Arquitectura
-          </button>
-          <button class="stage-tab-btn" data-stage="3">
-            <span class="num">03</span> Desarrollo y Codificación
-          </button>
-          <button class="stage-tab-btn" data-stage="4">
-            <span class="num">04</span> Pruebas y Aseguramiento
-          </button>
-          <button class="stage-tab-btn" data-stage="5">
-            <span class="num">05</span> Despliegue (CI/CD)
-          </button>
-          <button class="stage-tab-btn" data-stage="6">
-            <span class="num">06</span> Mantenimiento
-          </button>
+    <!-- Timeline SDLC -->
+    <section class="timeline-container">
+      
+      <article class="timeline-card" data-step="1">
+        <div class="timeline-marker">01</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 01 &bull; Requisitos</span>
+          <h2>Análisis de Requisitos</h2>
+          <p>Relevamiento y documentación formal de requisitos funcionales y no funcionales. Definición de criterios de aceptación y especificación de casos de prueba iniciales.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Validación de historias de usuario (INVEST) y prevención de ambigüedades.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="2">
+        <div class="timeline-marker">02</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 02 &bull; Arquitectura</span>
+          <h2>Diseño de Arquitectura y Sistema</h2>
+          <p>Modelado de arquitectura del software, esquemas de bases de datos, diagramas UML y maquetación de interfaces (UI/UX) para garantizar escalabilidad y usabilidad.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Revisión del diseño técnico, seguridad, rendimiento y plan de pruebas de integración.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="3">
+        <div class="timeline-marker">03</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 03 &bull; Código</span>
+          <h2>Desarrollo e Implementación</h2>
+          <p>Escritura del código fuente siguiendo buenas prácticas de programación, control de versiones (Git), patrones de diseño y revisión de código entre pares.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Ejecución de análisis estático de código, pruebas unitarias y cobertura de código.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="4">
+        <div class="timeline-marker">04</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 04 &bull; Testing</span>
+          <h2>Pruebas y Verificación (QA Testing)</h2>
+          <p>Ejecución intensiva de pruebas funcionales, de regresión, de integración, rendimiento y seguridad para identificar y corregir defectos antes de la liberación.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Reporte y seguimiento de bugs, verificación de criterios de aceptación.</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="5">
+        <div class="timeline-marker">05</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 05 &bull; Release</span>
+          <h2>Despliegue y Entrega</h2>
+          <p>Liberación controlada en entornos de producción mediante pipelines CI/CD. Monitoreo en tiempo real del rendimiento e impacto de la versión.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Smoke testing post-despliegue y pruebas de aceptación de usuario (UAT).</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="timeline-card" data-step="6">
+        <div class="timeline-marker">06</div>
+        <div class="timeline-content">
+          <span class="step-tag">Fase 06 &bull; Soporte</span>
+          <h2>Mantenimiento y Evolución</h2>
+          <p>Atención a incidencias de producción, aplicación de parches de seguridad y actualización constante de funcionalidades.</p>
+          <div class="qa-note">
+            <i class="fa-solid fa-circle-check"></i>
+            <div><strong>Rol de QA:</strong> Pruebas de mantenimiento y actualización de la suite de pruebas automatizadas.</div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Sección Equipo de Desarrollo -->
+    <section class="team-section" id="equipo">
+      <div class="team-header">
+        <i class="fa-solid fa-user-gear team-title-icon"></i>
+        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
+      </div>
+      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-pen-nib"></i>
+          </div>
+          <h3>Juan Altomare</h3>
+          <span class="role-badge">Diseñador</span>
         </div>
 
-        <div class="stage-content-card">
-          
-          <!-- Stage 1 -->
-          <div class="stage-panel active" id="stage-panel-1">
-            <div class="panel-meta"><i class="fa-solid fa-clipboard-list"></i> FASE 01 DE 06</div>
-            <h3>ANÁLISIS DE REQUISITOS Y PLANIFICACIÓN</h3>
-            <p>Identificación exhaustiva de las necesidades del cliente y usuarios finales. Se definen requerimientos funcionales, no funcionales y la viabilidad técnica y financiera del proyecto.</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Documento SRS (Software Requirements Specification)</li>
-                  <li>Historias de usuario y Criterios de Aceptación</li>
-                  <li>Matriz de viabilidad de proyecto</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>La detección temprana de ambigüedades en esta fase evita hasta un 80% de los costos de corrección en etapas avanzadas.</p>
-              </div>
-            </div>
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-bug-slash"></i>
           </div>
+          <h3>Arias Morena</h3>
+          <span class="role-badge">Tester</span>
+        </div>
 
-          <!-- Stage 2 -->
-          <div class="stage-panel" id="stage-panel-2">
-            <div class="panel-meta"><i class="fa-solid fa-pen-ruler"></i> FASE 02 DE 06</div>
-            <h3>DISEÑO DE ARQUITECTURA Y SISTEMA</h3>
-            <p>Traducción de los requisitos en una especificación técnica. Definición de la arquitectura del software, esquemas de bases de datos, contratos de API e interfaces de usuario (UI/UX).</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Documento de Arquitectura de Software (SAD)</li>
-                  <li>Diagramas ER, UML y Mapeo de APIs</li>
-                  <li>Prototipos UX/UI interactivos</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>Definición del plan de pruebas de integración y diseño de estrategias de pruebas de rendimiento y seguridad.</p>
-              </div>
-            </div>
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-code"></i>
           </div>
+          <h3>Fran Ainara</h3>
+          <span class="role-badge">Diseñadora y Programadora</span>
+        </div>
 
-          <!-- Stage 3 -->
-          <div class="stage-panel" id="stage-panel-3">
-            <div class="panel-meta"><i class="fa-solid fa-code"></i> FASE 03 DE 06</div>
-            <h3>DESARROLLO Y CODIFICACIÓN</h3>
-            <p>Construcción física del código fuente siguiendo estándares de programación, principios SOLID, patrones de diseño y control de versiones mediante ramas estructuradas.</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Código fuente compilable y versionado</li>
-                  <li>Suites de Pruebas Unitarias automáticas</li>
-                  <li>Documentación técnica del código (Swagger/JSDoc)</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>Ejecución de análisis estático de código (Linters, SonarQube) y cobertura de código unitario previo al Merge.</p>
-              </div>
-            </div>
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-vial-circle-check"></i>
           </div>
+          <h3>Leiva Dana</h3>
+          <span class="role-badge">Tester</span>
+        </div>
 
-          <!-- Stage 4 -->
-          <div class="stage-panel" id="stage-panel-4">
-            <div class="panel-meta"><i class="fa-solid fa-vial-circle-check"></i> FASE 04 DE 06</div>
-            <h3>PRUEBAS Y ASEGURAMIENTO (QA)</h3>
-            <p>Ejecución rigurosa de pruebas en entornos de Staging/QA para identificar errores, inconsistencias y garantizar que el producto cumpla los requisitos de calidad y seguridad.</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Reportes de bugs y matriz de ejecución</li>
-                  <li>Pruebas de Carga, Rendimiento y Seguridad</li>
-                  <li>Certificación de Pruebas de Aceptación (UAT)</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>Verificación directa del comportamiento esperado, prevención de regresiones y aprobación del Release Candidate.</p>
-              </div>
-            </div>
+        <div class="team-card">
+          <div class="icon-wrapper">
+            <i class="fa-solid fa-diagram-project"></i>
           </div>
-
-          <!-- Stage 5 -->
-          <div class="stage-panel" id="stage-panel-5">
-            <div class="panel-meta"><i class="fa-solid fa-rocket"></i> FASE 05 DE 06</div>
-            <h3>DESPLIEGUE E INTEGRACIÓN CONTINUA (CI/CD)</h3>
-            <p>Liberación del software en entornos de producción utilizando pipelines automatizados de despliegue, estrategias Canary/Blue-Green y aprovisionamiento de infraestructura.</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Aplicación desplegada y accesible</li>
-                  <li>Pipelines de CI/CD operativos</li>
-                  <li>Planes de Rollback y contingencia</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>Ejecución de pruebas Smoke de post-despliegue (Sanity Checks) para certificar la estabilidad en producción.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Stage 6 -->
-          <div class="stage-panel" id="stage-panel-6">
-            <div class="panel-meta"><i class="fa-solid fa-wrench"></i> FASE 06 DE 06</div>
-            <h3>MANTENIMIENTO Y EVOLUCIÓN CONTINUA</h3>
-            <p>Monitoreo constante del sistema en producción, corrección de incidentes no detectados, parches de seguridad y actualización de funcionalidades según la respuesta del mercado.</p>
-            <div class="panel-grid">
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-file-signature"></i> ENTREGABLES</h4>
-                <ul>
-                  <li>Hotfixes y Parches de Seguridad</li>
-                  <li>Métricas de Telemetría y SLA</li>
-                  <li>Roadmap de nuevas versiones</li>
-                </ul>
-              </div>
-              <div class="grid-box">
-                <h4><i class="fa-solid fa-shield-halved"></i> IMPACTO EN QA</h4>
-                <p>Realimentación del banco de pruebas automatizadas a partir de los errores reportados en producción.</p>
-              </div>
-            </div>
-          </div>
-
+          <h3>Resoagli Bautista</h3>
+          <span class="role-badge">Scrum Master y Programador</span>
         </div>
       </div>
     </section>
-
-    <!-- SECCIÓN DE MODELOS TRADICIONALES DE DESARROLLO -->
-    <section class="section-block" id="tradicionales">
-      <div class="block-header">
-        <span class="block-num">02 / ENFOQUES CLÁSICOS</span>
-        <h2 class="block-title">MODELOS TRADICIONALES DE INGENIERÍA</h2>
-      </div>
-
-      <div class="models-grid">
-        
-        <!-- Modelo 1 -->
-        <div class="model-card">
-          <div class="model-badge">LINEAL Y RIGUROSO</div>
-          <h3 class="model-name"><i class="fa-solid fa-water"></i> MODELO EN CASCADA (WATERFALL)</h3>
-          <p class="model-intro">Enfoque secuencial donde cada fase debe ser completada formalmente antes de comenzar la siguiente.</p>
-          
-          <div class="model-body">
-            <div class="m-sec pro">
-              <span class="m-lbl"><i class="fa-solid fa-check"></i> Ventajas:</span>
-              <p>Estructura clara, documentación exhaustiva y fácil gestión en proyectos pequeños con requisitos estables.</p>
-            </div>
-            <div class="m-sec con">
-              <span class="m-lbl"><i class="fa-solid fa-xmark"></i> Desventajas:</span>
-              <p>Alta rigidez. Las pruebas se realizan al final y corregir errores en fases tardías resulta sumamente costoso.</p>
-            </div>
-            <div class="m-sec use">
-              <span class="m-lbl"><i class="fa-solid fa-lightbulb"></i> Cuándo Usarlo:</span>
-              <p>Proyectos con requerimientos 100% claros, invariables y regulados por normativa legal.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modelo 2 -->
-        <div class="model-card featured">
-          <div class="model-badge green">ORIENTADO A QA</div>
-          <h3 class="model-name"><i class="fa-solid fa-v"></i> MODELO EN V (V-MODEL)</h3>
-          <p class="model-intro">Extensión del modelo en cascada que empareja cada fase de desarrollo con su correspondiente nivel de prueba.</p>
-          
-          <div class="model-body">
-            <div class="m-sec pro">
-              <span class="m-lbl"><i class="fa-solid fa-check"></i> Ventajas:</span>
-              <p>El plan de pruebas se diseña desde la etapa inicial de requisitos, garantizando alta calidad y fiabilidad.</p>
-            </div>
-            <div class="m-sec con">
-              <span class="m-lbl"><i class="fa-solid fa-xmark"></i> Desventajas:</span>
-              <p>Al igual que la cascada, mantiene rigidez frente a cambios sobre la marcha durante la construcción.</p>
-            </div>
-            <div class="m-sec use">
-              <span class="m-lbl"><i class="fa-solid fa-lightbulb"></i> Cuándo Usarlo:</span>
-              <p>Sistemas críticos de alta disponibilidad, dispositivos médicos o sistemas bancarios/aeroespaciales.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Modelo 3 -->
-        <div class="model-card">
-          <div class="model-badge purple">ITERATIVO</div>
-          <h3 class="model-name"><i class="fa-solid fa-rotate-right"></i> MODELO ITERATIVO E INCREMENTAL</h3>
-          <p class="model-intro">Desarrollo en ciclos repetitivos donde cada entrega añade nuevas funcionalidades sobre una base probada.</p>
-          
-          <div class="model-body">
-            <div class="m-sec pro">
-              <span class="m-lbl"><i class="fa-solid fa-check"></i> Ventajas:</span>
-              <p>Entrega temprana de valor al cliente y mejor capacidad de adaptación a modificaciones del alcance.</p>
-            </div>
-            <div class="m-sec con">
-              <span class="m-lbl"><i class="fa-solid fa-xmark"></i> Desventajas:</span>
-              <p>Requiere una arquitectura inicial sólida para evitar refactorizaciones constantes y caóticas.</p>
-            </div>
-            <div class="m-sec use">
-              <span class="m-lbl"><i class="fa-solid fa-lightbulb"></i> Cuándo Usarlo:</span>
-              <p>Proyectos medianos o grandes donde las prioridades de negocio evolucionan dinámicamente.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECCIÓN COMPARATIVA Y CUADRO RESUMEN -->
-    <section class="section-block" id="comparativa">
-      <div class="block-header">
-        <span class="block-num">03 / CRITERIOS DE SELECCIÓN</span>
-        <h2 class="block-title">TABLA COMPARATIVA DE MODELOS</h2>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="tech-table">
-          <thead>
-            <tr>
-              <th>Criterio de Evaluación</th>
-              <th>Modelo en Cascada</th>
-              <th>Modelo en V</th>
-              <th>Iterativo / Incremental</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Flexibilidad ante cambios</strong></td>
-              <td><span class="tag-low">Muy Baja</span></td>
-              <td><span class="tag-low">Baja</span></td>
-              <td><span class="tag-high">Alta</span></td>
-            </tr>
-            <tr>
-              <td><strong>Involucramiento de QA</strong></td>
-              <td>Tardío (Solo al final)</td>
-              <td>Temprano (En paralelo)</td>
-              <td>Continuo (En cada iteración)</td>
-            </tr>
-            <tr>
-              <td><strong>Costo de corrección de fallos</strong></td>
-              <td>Muy Alto</td>
-              <td>Medio - Bajo</td>
-              <td>Bajo</td>
-            </tr>
-            <tr>
-              <td><strong>Entrega de valor al usuario</strong></td>
-              <td>Al final del proyecto</td>
-              <td>Al final del proyecto</td>
-              <td>Parcial y Progresiva</td>
-            </tr>
-            <tr>
-              <td><strong>Complejidad de Gestión</strong></td>
-              <td>Sencilla</td>
-              <td>Estructurada / Media</td>
-              <td>Alta (Requiere control)</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
   </main>
 
-  <!-- FOOTER TÉCNICO -->
-  <footer class="app-footer">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <svg viewBox="0 0 200 220" width="24" height="24" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="100,15 175,55 175,145 100,185 25,145 25,55" />
-          <path d="M 60,75 L 100,50 L 140,75 L 140,115 L 100,140 L 60,115 Z" />
-        </svg>
-        <span>67 PATROL PROCESS ENGINEERING</span>
-      </div>
-      <div class="footer-notes">
-        &copy; 2026 67 Patrol - Guía de Procesos de Desarrollo y Modelos de Ingeniería.
-      </div>
-    </div>
+  <footer class="footer">
+    <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
   </footer>
 
   <script src="proceso.js"></script>

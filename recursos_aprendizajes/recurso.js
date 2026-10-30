@@ -1,152 +1,284 @@
-/* ========================================================== */
-/* LÓGICA DE RECURSOS, GLOSARIO Y ACORDEÓN FAQ (recurso.js)   */
-/* ========================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  // --- 1. Control del Menú Lateral (Drawer) ---
+  // 1. Toggle del Menú Lateral (Drawer)
   const menuToggle = document.getElementById('menuToggle');
-  const closeDrawer = document.getElementById('closeDrawer');
   const navDrawer = document.getElementById('navDrawer');
+  const closeDrawer = document.getElementById('closeDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  if (menuToggle && navDrawer) {
-    menuToggle.addEventListener('click', () => {
-      navDrawer.classList.add('open');
-      drawerOverlay.classList.add('active');
-    });
+  function toggleMenu() {
+    navDrawer.classList.toggle('open');
+    drawerOverlay.classList.toggle('active');
   }
 
-  if (closeDrawer && navDrawer) {
-    closeDrawer.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('active');
-    });
-  }
+  if (menuToggle) menuToggle.addEventListener('click', toggleMenu);
+  if (closeDrawer) closeDrawer.addEventListener('click', toggleMenu);
+  if (drawerOverlay) drawerOverlay.addEventListener('click', toggleMenu);
 
-  if (drawerOverlay) {
-    drawerOverlay.addEventListener('click', () => {
-      navDrawer.classList.remove('open');
-      drawerOverlay.classList.remove('active');
-    });
-  }
-
-  // --- 2. Funcionalidad del Acordeón FAQ ---
-  const faqQuestions = document.querySelectorAll('.faq-question-btn');
-
-  faqQuestions.forEach(button => {
-    button.addEventListener('click', () => {
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-      
-      // Cerrar todos los demás acordeones (Opcional, estilo acordeón exclusivo)
-      faqQuestions.forEach(btn => {
-        btn.setAttribute('aria-expanded', 'false');
-        btn.nextElementSibling.style.maxHeight = null;
-      });
-
-      // Alternar el estado actual si no estaba expandido
-      if (!expanded) {
-        button.setAttribute('aria-expanded', 'true');
-        const answerWrapper = button.nextElementSibling;
-        answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 'px';
-      }
-    });
-  });
-
-  // --- 3. Buscador y Filtro A-Z del Glosario ---
-  const searchInput = document.getElementById('glossarySearch');
-  const clearSearchBtn = document.getElementById('clearSearch');
-  const alphaButtons = document.querySelectorAll('.alpha-btn');
+  // 2. Buscador y Filtro A-Z del Glosario
+  const glossarySearch = document.getElementById('glossarySearch');
+  const clearSearch = document.getElementById('clearSearch');
+  const alphaBtns = document.querySelectorAll('.alpha-btn');
   const glossaryGroups = document.querySelectorAll('.glossary-group');
-  const noResultsCard = document.getElementById('noResults');
+  const noResults = document.getElementById('noResults');
   const resetFilterBtn = document.getElementById('resetFilterBtn');
 
-  let currentLetter = 'all';
-
-  function filterGlossary() {
-    const query = searchInput.value.toLowerCase().trim();
-    let totalVisibleTerms = 0;
+  function filterGlossary(query = '', letter = 'all') {
+    const q = query.toLowerCase().trim();
+    let totalVisible = 0;
 
     glossaryGroups.forEach(group => {
       const groupLetter = group.getAttribute('data-group');
       const termCards = group.querySelectorAll('.term-card');
-      let groupHasVisibleTerm = false;
+      let groupHasVisible = false;
 
-      // Verificar filtro por letra del índice A-Z
-      const matchesLetter = (currentLetter === 'all' || groupLetter === currentLetter);
-
-      if (!matchesLetter) {
-        group.style.display = 'none';
-        return;
-      }
+      const matchLetter = (letter === 'all' || groupLetter === letter);
 
       termCards.forEach(card => {
         const title = card.querySelector('h3').textContent.toLowerCase();
-        const description = card.querySelector('p').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
         const tag = card.querySelector('.term-tag').textContent.toLowerCase();
 
-        const matchesSearch = title.includes(query) || description.includes(query) || tag.includes(query);
+        const matchQuery = (title.includes(q) || desc.includes(q) || tag.includes(q));
 
-        if (matchesSearch) {
+        if (matchLetter && matchQuery) {
           card.style.display = 'flex';
-          groupHasVisibleTerm = true;
-          totalVisibleTerms++;
+          groupHasVisible = true;
+          totalVisible++;
         } else {
           card.style.display = 'none';
         }
       });
 
-      if (groupHasVisibleTerm) {
+      if (groupHasVisible) {
         group.style.display = 'block';
       } else {
         group.style.display = 'none';
       }
     });
 
-    // Mostrar u ocultar botón de limpiar búsqueda
-    if (query.length > 0) {
-      clearSearchBtn.style.display = 'block';
+    if (totalVisible === 0) {
+      noResults.style.display = 'block';
     } else {
-      clearSearchBtn.style.display = 'none';
+      noResults.style.display = 'none';
     }
 
-    // Manejar pantalla de "Sin Resultados"
-    if (totalVisibleTerms === 0) {
-      noResultsCard.style.display = 'block';
+    if (q.length > 0) {
+      clearSearch.style.display = 'block';
     } else {
-      noResultsCard.style.display = 'none';
+      clearSearch.style.display = 'none';
     }
   }
 
-  if (searchInput) {
-    searchInput.addEventListener('input', filterGlossary);
-  }
-
-  if (clearSearchBtn) {
-    clearSearchBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      clearSearchBtn.style.display = 'none';
-      filterGlossary();
+  if (glossarySearch) {
+    glossarySearch.addEventListener('input', (e) => {
+      const activeAlpha = document.querySelector('.alpha-btn.active').getAttribute('data-letter');
+      filterGlossary(e.target.value, activeAlpha);
     });
   }
 
-  alphaButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      alphaButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      currentLetter = button.getAttribute('data-letter');
-      filterGlossary();
+  if (clearSearch) {
+    clearSearch.addEventListener('click', () => {
+      glossarySearch.value = '';
+      const activeAlpha = document.querySelector('.alpha-btn.active').getAttribute('data-letter');
+      filterGlossary('', activeAlpha);
+    });
+  }
+
+  alphaBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      alphaBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const letter = btn.getAttribute('data-letter');
+      const query = glossarySearch.value;
+      filterGlossary(query, letter);
     });
   });
 
   if (resetFilterBtn) {
     resetFilterBtn.addEventListener('click', () => {
-      searchInput.value = '';
-      currentLetter = 'all';
-      alphaButtons.forEach(btn => btn.classList.remove('active'));
+      glossarySearch.value = '';
+      alphaBtns.forEach(b => b.classList.remove('active'));
       document.querySelector('.alpha-btn[data-letter="all"]').classList.add('active');
-      filterGlossary();
+      filterGlossary('', 'all');
     });
   }
 
+  // 3. Acordeón FAQ
+  const faqButtons = document.querySelectorAll('.faq-question-btn');
+  faqButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const faqItem = btn.parentElement;
+      const answerWrapper = btn.nextElementSibling;
+      const isOpen = faqItem.classList.contains('active');
+
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-answer-wrapper').style.maxHeight = null;
+        item.querySelector('.faq-question-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        faqItem.classList.add('active');
+        answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // 4. Toggle para Soluciones de Casos Prácticos (US-15)
+  const toggleBtns = document.querySelectorAll('.cyber-btn-toggle');
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      const solutionBox = document.getElementById(targetId);
+      
+      if (solutionBox.style.display === 'none') {
+        solutionBox.style.display = 'block';
+        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ocultar Solución Técnica';
+      } else {
+        solutionBox.style.display = 'none';
+        btn.innerHTML = '<i class="fa-solid fa-code"></i> Ver Solución Técnica';
+      }
+    });
+  });
+
+  // 5. Lógica del Wizard / Encuesta Metodológica y Comparador (Scrum, Kanban, Cascada, Modelo en V)
+  const steps = document.querySelectorAll('.wizard-step');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const surveyForm = document.getElementById('surveyForm');
+  const resultsContainer = document.getElementById('resultsContainer');
+  const stepIndicator = document.getElementById('stepIndicator');
+  const progressPercentage = document.getElementById('progressPercentage');
+  const progressFill = document.getElementById('progressFill');
+  const restartBtn = document.getElementById('restartBtn');
+
+  let currentStep = 0;
+  const totalSteps = steps.length;
+
+  function updateWizard() {
+    steps.forEach((step, index) => {
+      step.style.display = (index === currentStep) ? 'block' : 'none';
+    });
+
+    if (prevBtn) prevBtn.style.display = (currentStep === 0) ? 'none' : 'block';
+
+    if (nextBtn) {
+      if (currentStep === totalSteps - 1) {
+        nextBtn.innerHTML = 'Ver Comparativa <i class="fa-solid fa-check"></i>';
+      } else {
+        nextBtn.innerHTML = 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+      }
+    }
+
+    const progress = ((currentStep + 1) / totalSteps) * 100;
+    if (stepIndicator) stepIndicator.textContent = `Paso ${currentStep + 1} de ${totalSteps}`;
+    if (progressPercentage) progressPercentage.textContent = `${Math.round(progress)}% Completado`;
+    if (progressFill) progressFill.style.width = `${progress}%`;
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      const currentStepEl = steps[currentStep];
+      const selectedRadio = currentStepEl.querySelector('input[type="radio"]:checked');
+
+      if (!selectedRadio) {
+        alert('Por favor selecciona una opción antes de continuar.');
+        return;
+      }
+
+      if (currentStep < totalSteps - 1) {
+        currentStep++;
+        updateWizard();
+      } else {
+        calculateResults();
+      }
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      if (currentStep > 0) {
+        currentStep--;
+        updateWizard();
+      }
+    });
+  }
+
+  function calculateResults() {
+    const formData = new FormData(surveyForm);
+    let counts = { scrum: 0, kanban: 0, cascada: 0, modelov: 0 };
+
+    for (let value of formData.values()) {
+      if (counts[value] !== undefined) {
+        counts[value]++;
+      }
+    }
+
+    const totalAnswers = totalSteps;
+    let scrumPct = Math.round((counts.scrum / totalAnswers) * 100);
+    let kanbanPct = Math.round((counts.kanban / totalAnswers) * 100);
+    let cascadaPct = Math.round((counts.cascada / totalAnswers) * 100);
+    let modelovPct = Math.round((counts.modelov / totalAnswers) * 100);
+
+    if (surveyForm) surveyForm.style.display = 'none';
+    if (resultsContainer) resultsContainer.style.display = 'block';
+
+    const scoreScrum = document.getElementById('scoreScrum');
+    const scoreKanban = document.getElementById('scoreKanban');
+    const scoreCascada = document.getElementById('scoreCascada');
+    const scoreModeloV = document.getElementById('scoreModeloV');
+    const fillScrum = document.getElementById('fillScrum');
+    const fillKanban = document.getElementById('fillKanban');
+    const fillCascada = document.getElementById('fillCascada');
+    const fillModeloV = document.getElementById('fillModeloV');
+
+    if (scoreScrum) scoreScrum.textContent = `${scrumPct}%`;
+    if (scoreKanban) scoreKanban.textContent = `${kanbanPct}%`;
+    if (scoreCascada) scoreCascada.textContent = `${cascadaPct}%`;
+    if (scoreModeloV) scoreModeloV.textContent = `${modelovPct}%`;
+
+    if (fillScrum) fillScrum.style.width = `${scrumPct}%`;
+    if (fillKanban) fillKanban.style.width = `${kanbanPct}%`;
+    if (fillCascada) fillCascada.style.width = `${cascadaPct}%`;
+    if (fillModeloV) fillModeloV.style.width = `${modelovPct}%`;
+
+    let winner = 'Scrum';
+    let maxVal = scrumPct;
+    let desc = 'Tu proyecto se adapta perfectamente a Sprints iterativos, roles definidos y entregas periódicas de valor al usuario.';
+
+    if (kanbanPct > maxVal) {
+      winner = 'Kanban';
+      maxVal = kanbanPct;
+      desc = 'Tu proyecto requiere un flujo continuo y optimización de cuellos de botella mediante límites WIP sin iteraciones rígidas.';
+    }
+    if (cascadaPct > maxVal) {
+      winner = 'Modelo en Cascada';
+      maxVal = cascadaPct;
+      desc = 'Tu proyecto presenta alta criticidad y requisitos estrictos estables, requiriendo un enfoque secuencial documentado.';
+    }
+    if (modelovPct > maxVal) {
+      winner = 'Modelo en V';
+      maxVal = modelovPct;
+      desc = 'Tu proyecto requiere un alto rigor técnico y estructuración formal, asociando cada fase de diseño de ingeniería con su respectivo nivel de pruebas de verificación y validación (QA).';
+    }
+
+    const winnerTitle = document.getElementById('winnerTitle');
+    const winnerDesc = document.getElementById('winnerDesc');
+    if (winnerTitle) winnerTitle.textContent = winner;
+    if (winnerDesc) winnerDesc.textContent = desc;
+  }
+
+  if (restartBtn) {
+    restartBtn.addEventListener('click', () => {
+      surveyForm.reset();
+      surveyForm.style.display = 'block';
+      resultsContainer.style.display = 'none';
+      currentStep = 0;
+      updateWizard();
+    });
+  }
+
+  updateWizard();
 });

@@ -1,16 +1,16 @@
 /* ========================================================== */
-/* ESTILOS DE GESTIÓN Y CALIDAD - 67 PATROL (gestion.css)     */
+/* ESTILOS DE GESTIÓN DE CALIDAD & TÉCNICAS (gestion.css)     */
 /* ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap');
 
 :root {
   --bg-main: #05070c;
   --bg-card: rgba(10, 16, 28, 0.85);
   --bg-drawer: #020408;
 
-  --accent-cyan: #00f2fe;
   --electric-blue: #0066ff;
+  --accent-cyan: #00f2fe;
   --cyan-glow: rgba(0, 242, 254, 0.25);
   --accent-purple: #bd00ff;
   --purple-glow: rgba(189, 0, 255, 0.3);
@@ -103,7 +103,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* --- MENÚ LATERAL DESPLEGABLE (DRAWER) --- */
+/* --- MENÚ LATERAL (DRAWER) --- */
 .nav-drawer {
   position: fixed;
   top: 0;
@@ -177,66 +177,12 @@ body {
   font-size: 1.1rem;
   width: 22px;
   text-align: center;
-  transition: transform 0.3s ease;
 }
 
 .drawer-menu a:hover,
 .drawer-menu a.active {
   background: linear-gradient(135deg, rgba(189, 0, 255, 0.2), rgba(0, 242, 254, 0.15));
   border-color: var(--border-cyan);
-  color: #ffffff;
-}
-
-.drawer-menu a:hover i,
-.drawer-menu a.active i {
-  color: var(--accent-cyan);
-  transform: scale(1.15);
-}
-
-.has-submenu {
-  display: flex;
-  flex-direction: column;
-}
-
-.submenu-toggle .arrow-icon {
-  margin-left: auto;
-  font-size: 0.8rem;
-  transition: transform 0.3s ease;
-}
-
-.has-submenu:hover .arrow-icon {
-  transform: rotate(180deg);
-}
-
-.submenu {
-  list-style: none;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, opacity 0.3s ease;
-  padding-left: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.has-submenu:hover .submenu {
-  max-height: 250px;
-  opacity: 1;
-  margin-top: 0.5rem;
-}
-
-.submenu a {
-  font-size: 0.82rem !important;
-  color: var(--text-muted);
-  padding: 10px 14px;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px dashed var(--border-glass);
-}
-
-.submenu a:hover {
-  background-color: rgba(0, 242, 254, 0.1);
   color: #ffffff;
 }
 
@@ -256,17 +202,36 @@ body {
   display: block;
 }
 
-/* --- CONTENEDOR PRINCIPAL Y HERO --- */
+/* --- CONTENEDOR PRINCIPAL --- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
 
-.hero-section,
-.hero-banner {
+.hero-section, .hero-banner {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 24px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(16px);
+}
+
+.hero-icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.2rem auto;
+  background: rgba(0, 242, 254, 0.1);
+  border: 1px solid var(--border-cyan);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--accent-cyan);
+  box-shadow: 0 0 15px var(--cyan-glow);
 }
 
 .badge-header {
@@ -284,41 +249,23 @@ body {
   box-shadow: 0 0 15px var(--cyan-glow);
 }
 
-.hero-section h1,
-.hero-banner h1 {
+.hero-section h1, .hero-banner h1 {
   font-family: var(--font-title);
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #ffffff;
   margin-bottom: 1rem;
 }
 
-.hero-section p,
-.hero-banner p {
+.hero-section p, .hero-banner p {
   color: var(--text-muted);
   font-size: 1.15rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.hero-icon-box {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1.2rem auto;
-  border-radius: 20px;
-  background: rgba(0, 242, 254, 0.1);
-  border: 1px solid var(--border-cyan);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: var(--accent-cyan);
-  box-shadow: 0 0 20px var(--cyan-glow);
-}
-
-/* --- SECCIONES Y BLOQUES DE CONTENIDO --- */
-.content-section,
-.section-block {
+/* --- SECCIONES DE CONTENIDO --- */
+.content-section, .section-block {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-glass);
@@ -327,97 +274,91 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.section-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 1.5rem;
-}
-
-.section-title i {
-  font-size: 1.5rem;
-  color: var(--accent-cyan);
-}
-
-.section-title h2 {
+.content-section h2, .section-title {
   font-family: var(--font-title);
   font-size: 1.5rem;
   color: #ffffff;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-/* --- TARJETAS DE NIVELES Y TÉCNICAS --- */
-.grid-cards {
+.content-section h2 i, .section-title i {
+  color: var(--accent-cyan);
+}
+
+.content-section > p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* Tarjetas Informativas / Niveles / Herramientas */
+.grid-cards, .grid-two-columns, .tools-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.8rem;
+  gap: 1.5rem;
   margin-top: 1.5rem;
 }
 
-.info-card {
+.info-card, .tool-card {
   background: rgba(2, 6, 23, 0.6);
   border: 1px solid var(--border-glass);
-  border-radius: 18px;
+  border-radius: 16px;
   padding: 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  justify-content: space-between;
   transition: all 0.3s ease;
 }
 
-.info-card:hover {
+.info-card:hover, .tool-card:hover {
   border-color: var(--accent-cyan);
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 10px 25px var(--cyan-glow);
 }
 
 .card-top {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
+  margin-bottom: 1rem;
 }
 
 .card-icon {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   color: var(--accent-cyan);
 }
 
-.info-card h3 {
+.card-top h3 {
   font-family: var(--font-title);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: #ffffff;
 }
 
-.info-card p {
+.info-card p, .tool-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
+  margin-bottom: 1.2rem;
 }
 
 .card-footer-tag {
-  margin-top: auto;
   font-family: var(--font-title);
   font-size: 0.75rem;
   color: var(--accent-cyan);
   background: rgba(0, 242, 254, 0.08);
   border: 1px solid var(--border-cyan);
-  padding: 4px 12px;
+  padding: 4px 10px;
   border-radius: 20px;
   width: fit-content;
 }
 
-/* --- DOS COLUMNAS Y ESTILOS 3D FLIP CARDS --- */
-.grid-two-columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
+/* --- TARJETAS GIRATORIAS 3D (FLIP CARDS) --- */
 .flip-card {
   background-color: transparent;
-  perspective: 1000px;
   width: 100%;
-  min-height: 440px;
-  cursor: pointer;
+  height: 420px;
+  perspective: 1000px;
 }
 
 .flip-card-inner {
@@ -425,116 +366,85 @@ body {
   width: 100%;
   height: 100%;
   text-align: left;
-  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  cursor: pointer;
 }
 
 .flip-card.flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, 
-.flip-card-back {
+.flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 20px;
-}
-
-.type-card {
-  background: rgba(2, 6, 23, 0.75);
-  border: 1px solid var(--border-glass);
   border-radius: 20px;
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  height: 100%;
+  justify-content: space-between;
 }
 
-.black-box {
-  border-color: rgba(0, 242, 254, 0.25);
-}
-.black-box:hover {
-  box-shadow: 0 10px 25px var(--cyan-glow);
+.type-card {
+  background: rgba(2, 6, 23, 0.7);
+  border: 1px solid var(--border-glass);
 }
 
-.white-box {
-  border-color: rgba(189, 0, 255, 0.25);
-}
-.white-box:hover {
-  box-shadow: 0 10px 25px var(--purple-glow);
-}
+.black-box { border-top: 4px solid var(--accent-cyan); }
+.white-box { border-top: 4px solid var(--accent-purple); }
 
 .flip-card-back {
   transform: rotateY(180deg);
-  background: rgba(5, 10, 25, 0.95);
+  background: rgba(5, 7, 12, 0.95);
   border: 1px solid var(--border-cyan);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.white-box-back {
-  border-color: rgba(189, 0, 255, 0.4);
 }
 
 .type-header {
   display: flex;
   align-items: center;
   gap: 12px;
+  margin-bottom: 1rem;
 }
 
 .type-header i {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   color: var(--accent-cyan);
 }
 
-.white-box .type-header i,
-.white-box-back .type-header i {
+.white-box .type-header i {
   color: var(--accent-purple);
 }
 
-.type-card h3 {
+.type-header h3 {
   font-family: var(--font-title);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #ffffff;
 }
 
 .type-card p {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
 }
 
 .type-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 0.5rem;
-}
-
-.type-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: var(--text-muted);
-  font-size: 0.92rem;
+  font-size: 0.88rem;
 }
 
 .type-list li i {
-  color: var(--accent-cyan);
-  font-size: 0.85rem;
+  color: #4ade80;
+  margin-right: 8px;
 }
 
-.white-box .type-list li i {
-  color: var(--accent-purple);
-}
-
-/* --- ESTILOS DE LOS GRÁFICOS CONCEPTUALES EN EL DORSO --- */
-.diagram-container {
+/* Diagramas Conceptuales internos */
+.diagram-container, .flowchart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -542,26 +452,25 @@ body {
   background: rgba(0, 0, 0, 0.4);
   padding: 1rem;
   border-radius: 12px;
-  border: 1px dashed var(--border-cyan);
+  border: 1px solid var(--border-glass);
   margin-top: 0.5rem;
 }
 
-.diagram-box {
+.diagram-box, .flow-node, .flow-decision {
   background: rgba(0, 242, 254, 0.1);
-  border: 1px solid var(--accent-cyan);
+  border: 1px solid var(--border-cyan);
   color: #ffffff;
-  padding: 8px 14px;
+  padding: 8px 12px;
   border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.82rem;
+  font-family: var(--font-title);
   text-align: center;
   width: 100%;
 }
 
-.process-node {
-  background: rgba(255, 187, 0, 0.15);
-  border-color: var(--laser-gold);
-  color: var(--laser-gold);
+.flow-decision {
+  background: rgba(189, 0, 255, 0.1);
+  border-color: rgba(189, 0, 255, 0.4);
 }
 
 .diagram-arrow {
@@ -569,49 +478,9 @@ body {
   font-size: 0.9rem;
 }
 
-.flowchart-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px dashed rgba(189, 0, 255, 0.4);
-  margin-top: 0.5rem;
-}
-
-.flow-node {
-  background: rgba(189, 0, 255, 0.15);
-  border: 1px solid var(--accent-purple);
-  color: #ffffff;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  text-align: center;
-  width: 100%;
-}
-
-.flow-decision {
-  background: rgba(255, 187, 0, 0.15);
-  border: 1px solid var(--laser-gold);
-  color: var(--laser-gold);
-  padding: 6px 12px;
-  border-radius: 16px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-.flow-line {
-  width: 2px;
-  height: 14px;
-  background: var(--accent-purple);
-}
-
 .flow-branches {
   display: flex;
-  gap: 15px;
+  gap: 1rem;
   font-size: 0.75rem;
 }
 
@@ -622,95 +491,7 @@ body {
   color: var(--text-muted);
 }
 
-/* --- SECCIÓN EQUIPO --- */
-.team-section {
-  margin-top: 6rem;
-  padding-top: 4rem;
-  border-top: 1px solid var(--border-glass);
-  text-align: center;
-}
-
-.team-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 0.5rem;
-}
-
-.team-title-icon {
-  font-size: 1.6rem;
-  color: var(--accent-cyan);
-}
-
-.team-header h2 {
-  font-family: var(--font-title);
-  font-size: 1.6rem;
-  color: #ffffff;
-}
-
-.team-subtitle {
-  color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 3rem;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  gap: 1.5rem;
-}
-
-.team-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: 22px;
-  padding: 2.2rem 1.2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-}
-
-.team-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--border-cyan);
-  box-shadow: 0 12px 30px var(--cyan-glow);
-}
-
-.icon-wrapper {
-  width: 60px;
-  height: 60px;
-  border-radius: 18px;
-  background: rgba(0, 242, 254, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 5px;
-}
-
-.icon-wrapper i {
-  font-size: 1.6rem;
-  color: var(--accent-cyan);
-}
-
-.team-card h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.role-badge {
-  background-color: rgba(5, 7, 12, 0.8);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  font-family: var(--font-title);
-  font-size: 0.8rem;
-  padding: 5px 14px;
-  border-radius: 20px;
-}
-
+/* --- FOOTER --- */
 .footer {
   text-align: center;
   padding: 2.5rem 1rem;
@@ -721,8 +502,18 @@ body {
   margin-top: 4rem;
 }
 
+/* --- RESPONSIVIDAD MÓVIL --- */
 @media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .header-bar {
+    padding: 1rem 1.2rem;
+  }
+  .container {
+    padding: 2rem 1rem;
+  }
+  .hero-section h1, .hero-banner h1 {
+    font-size: 1.8rem;
+  }
+  .flip-card {
+    height: 460px;
   }
 }

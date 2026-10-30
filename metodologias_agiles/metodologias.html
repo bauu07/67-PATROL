@@ -38,86 +38,49 @@
     </div>
     <ul class="drawer-menu">
       <li>
-        <a href="index.html" class="active">
+        <a href="../index.html">
           <i class="fa-solid fa-house"></i>
           <span>INICIO</span>
         </a>
       </li>
       <li>
-        <a href="gestion_calidad/gestion.html">
+        <a href="../gestion_calidad/gestion.html">
           <i class="fa-solid fa-shield-halved"></i>
           <span>GESTIÓN DE LA CALIDAD</span>
         </a>
       </li>
       <li>
-        <a href="Tecnicas_aseguramiento/tecnicas.html">
-          <i class="fa-solid fa-list-check"></i>
-          <span>TÉCNICAS DE ASEGURAMIENTO</span>
-        </a>
-      </li>
-      <li>
-        <a href="procesos_desarrollo/proceso.html">
+        <a href="../procesos_desarrollo/proceso.html" >
           <i class="fa-solid fa-code-branch"></i>
           <span>PROCESOS DE DESARROLLO</span>
         </a>
       </li>
-      <!-- Modelos Tradicionales removido -->
       <li>
-        <a href="metodologias_agiles/metodologias.html">
+        <a href="metodologias.html" class="active" >
           <i class="fa-solid fa-bolt"></i>
           <span>METODOLOGÍAS ÁGILES</span>
         </a>
       </li>
       <li>
-        <a href="metodologias_agiles/metodologias_detalle.html">
-          <i class="fa-solid fa-diagram-next"></i>
-          <span>METODOLOGÍAS EN DETALLE</span>
-        </a>
-      </li>
-      <li>
-        <a href="recursos_aprendizajes/recurso.html">
+        <a href="../recursos_aprendizajes/recurso.html">
           <i class="fa-solid fa-spell-check"></i>
-          <span>GLOSARIO A-Z</span>
+          <span>RECURSOS Y APRENDIZAJE</span>
         </a>
       </li>
       <li>
-        <a href="recursos_aprendizajes/faq.html">
-          <i class="fa-solid fa-circle-question"></i>
-          <span>PREGUNTAS FRECUENTES (FAQ)</span>
-        </a>
-      </li>
-      <li>
-        <a href="recursos_aprendizajes/enlaces.html">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          <span>ENLACES DE INTERÉS</span>
-        </a>
-      </li>
-      <li>
-        <a href="herramientas_interactivas/ejercicios.html">
+        <a href="../herramientas_interactivas/herramientas.html">
           <i class="fa-solid fa-laptop-code"></i>
-          <span>EJERCICIOS Y CASOS PRÁCTICOS</span>
+          <span>HERRAMIENTAS INTERACTIVAS</span>
         </a>
       </li>
       <li>
-        <a href="herramientas_interactivas/comparador.html">
-          <i class="fa-solid fa-table-columns"></i>
-          <span>COMPARADOR DE METODOLOGÍAS</span>
-        </a>
-      </li>
-      <li>
-        <a href="herramientas_interactivas/encuesta.html">
-          <i class="fa-solid fa-square-poll-vertical"></i>
-          <span>ENCUESTA METODOLÓGICA</span>
-        </a>
-      </li>
-      <li>
-        <a href="#equipo">
+        <a href="../sobre_nosotros/sobre_nosotros.html" >
           <i class="fa-solid fa-users"></i>
           <span>SOBRE NOSOTROS</span>
         </a>
       </li>
       <li>
-        <a href="formulario_contacto/contacto.html">
+        <a href="../formulario_contacto/contacto.html">
           <i class="fa-solid fa-paper-plane"></i>
           <span>CONTACTO</span>
         </a>
@@ -125,84 +88,241 @@
     </ul>
   </nav>
   <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ========================================== -->
+  <!-- MENÚ FLOTANTE / TABLA DE CONTENIDOS (TOC)  -->
+  <!-- ========================================== -->
+  <div class="floating-toc" id="floatingToc">
+    <div class="toc-header" id="tocHeader">
+      <span class="toc-title"><i class="fa-solid fa-list"></i> Índice Rápido</span>
+      <button class="toc-toggle-btn" id="tocToggleBtn" aria-label="Minimizar o expandir índice">
+        <i class="fa-solid fa-chevron-left" id="tocToggleIcon"></i>
+      </button>
+    </div>
+    <div class="toc-body" id="tocBody">
+      <a href="#manifestoSection">Manifiesto y Valores</a>
+      <a href="#modularSection">Metodologías (Scrum, Kanban, XP)</a>
+      <a href="#scrumSection">US-10: Scrum Profundo</a>
+      <a href="#kanbanSection">US-11: Tablero Kanban</a>
+    </div>
+  </div>
   
   <!-- ========================================== -->
   <!-- CONTENEDOR PRINCIPAL                       -->
   <!-- ========================================== -->
   <main class="container">
+    
+    <!-- ENCABEZADO DE LA SECCIÓN PRINCIPAL -->
     <section class="main-header">
-      <span class="badge-header">FUNDAMENTOS ÁGILES</span>
+      <span class="badge-header">FUNDAMENTOS ÁGILES &bull; US-08</span>
       <h1>Metodologías Ágiles</h1>
       <p>
         Descubre los principios del Manifiesto Ágil y cómo los marcos iterativos e incrementales transforman la entrega de valor en el desarrollo de software.
       </p>
     </section>
 
-    <!-- SECCIÓN INFORMATIVA GENERAL -->
-    <section class="content-section">
-      <h2><i class="fa-solid fa-compass"></i> Manifiesto Ágil y Filosofía</h2>
+    <!-- SECCIÓN INFORMATIVA GENERAL (MANIFIESTO ÁGIL) -->
+    <section class="content-section" id="manifestoSection">
+      <h2><i class="fa-solid fa-compass"></i> Manifiesto Ágil: Los 4 Valores Esenciales</h2>
       <p>
-        Las metodologías ágiles priorizan la adaptación al cambio, la colaboración estrecha con el cliente y la entrega temprana de software funcional por encima de los procesos rígidos y la documentación excesiva.
+        Las metodologías ágiles priorizan la adaptación al cambio, la colaboración estrecha con el cliente y la entrega temprana de software funcional por encima de los procesos rígidos.
       </p>
       <div class="cards-grid">
         <div class="detail-card">
-          <h3>Individuos e interacciones</h3>
+          <h3>1. Individuos e interacciones</h3>
           <p>Por encima de procesos y herramientas, fomentando la comunicación directa y el trabajo en equipo autogestionado.</p>
         </div>
         <div class="detail-card">
-          <h3>Software funcionando</h3>
+          <h3>2. Software funcionando</h3>
           <p>Por encima de la documentación exhaustiva, entregando valor real de forma continua a lo largo del ciclo.</p>
         </div>
         <div class="detail-card">
-          <h3>Colaboración con el cliente</h3>
+          <h3>3. Colaboración con el cliente</h3>
           <p>Por encima de la negociación contractual, integrando el feedback constante en cada iteración.</p>
         </div>
+        <div class="detail-card">
+          <h3>4. Respuesta ante el cambio</h3>
+          <p>Por encima de seguir estrictamente un plan inicial rígido, adaptándose a las necesidades emergentes del mercado.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem;">
+        <h3 style="color: var(--accent-cyan); font-family: var(--font-title); margin-bottom: 1rem;"><i class="fa-solid fa-list-check"></i> Los 12 Principios del Manifiesto Ágil</h3>
+        <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; list-style: none; padding: 0;">
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>1.</strong> Satisfacción del cliente mediante entrega temprana y continua.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>2.</strong> Aceptar que los requisitos cambien, incluso en fases tardías.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>3.</strong> Entregar software funcional frecuentemente (semanas o meses).</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>4.</strong> Colaboración diaria entre negocio y desarrolladores.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>5.</strong> Apoyar y confiar en individuos motivados.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>6.</strong> Conversación cara a cara (método más eficiente).</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>7.</strong> El software funcionando es la medida principal de progreso.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>8.</strong> Promover el desarrollo sostenible (ritmo constante).</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>9.</strong> Atención continua a la excelencia técnica y diseño.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>10.</strong> La simplicidad (el arte de maximizar el trabajo no hecho) es esencial.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>11.</strong> Las mejores arquitecturas emergen de equipos auto-organizados.</li>
+          <li style="background: rgba(2,6,23,0.5); padding: 1rem; border-radius: 12px; border-left: 3px solid var(--accent-cyan); font-size: 0.9rem; color: var(--text-muted);"><strong>12.</strong> Reflexión regular sobre cómo ser más efectivos.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- SECCIÓN EQUIPO DE DESARROLLO -->
-    <section class="team-section" id="equipo">
-      <div class="team-header">
-        <i class="fa-solid fa-user-gear team-title-icon"></i>
-        <h2>EQUIPO DE DESARROLLO Y GESTIÓN - 67 PATROL</h2>
-      </div>
-      <p class="team-subtitle">Créditos y roles oficiales de los integrantes del proyecto</p>
+    <!-- SECCIÓN MAQUETACIÓN MODULAR POR METODOLOGÍA (US-08 / US-09) -->
+    <section class="content-section" id="modularSection">
+      <h2><i class="fa-solid fa-layer-group"></i> Maquetación Modular por Metodología</h2>
+      <p>
+        Haz clic en las tarjetas interactivas de abajo para explorar detalladamente las características estructurales de cada marco de trabajo ágil:
+      </p>
 
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-pen-nib"></i></div>
-          <h3>Juan Altomare</h3>
-          <span class="role-badge">Diseñador</span>
+      <div class="modular-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+        
+        <!-- Tarjeta Modular Scrum -->
+        <div class="interactive-mod-card" data-modaltarget="scrumModal" style="background: rgba(2,6,23,0.7); border: 1px solid var(--border-glass); border-radius: 16px; padding: 2rem; cursor: pointer; transition: all 0.3s ease;">
+          <div style="font-size: 2rem; color: var(--electric-blue); margin-bottom: 1rem;"><i class="fa-solid fa-cubes"></i></div>
+          <h3 style="color: #fff; font-family: var(--font-title); margin-bottom: 0.5rem;">Scrum Framework</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Marco iterativo basado en Sprints, roles definidos (Product Owner, Scrum Master, Equipo) y ceremonias estrictas.</p>
+          <span style="display: inline-block; margin-top: 1rem; font-size: 0.8rem; color: var(--accent-cyan);">Toca para expandir ficha <i class="fa-solid fa-arrow-right"></i></span>
         </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-bug-slash"></i></div>
-          <h3>Arias Morena</h3>
-          <span class="role-badge">Tester</span>
+
+        <!-- Tarjeta Modular Kanban -->
+        <div class="interactive-mod-card" data-modaltarget="kanbanModal" style="background: rgba(2,6,23,0.7); border: 1px solid var(--border-glass); border-radius: 16px; padding: 2rem; cursor: pointer; transition: all 0.3s ease;">
+          <div style="font-size: 2rem; color: var(--amber-neon, #ffbb00); margin-bottom: 1rem;"><i class="fa-solid fa-columns"></i></div>
+          <h3 style="color: #fff; font-family: var(--font-title); margin-bottom: 0.5rem;">Kanban Method</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Gestión visual del flujo de trabajo, limitación del trabajo en proceso (WIP) y optimización continua de cuellos de botella.</p>
+          <span style="display: inline-block; margin-top: 1rem; font-size: 0.8rem; color: var(--amber-neon, #ffbb00);">Toca para expandir ficha <i class="fa-solid fa-arrow-right"></i></span>
         </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-code"></i></div>
-          <h3>Fran Ainara</h3>
-          <span class="role-badge">Diseñadora y Programadora</span>
+
+        <!-- Tarjeta Modular XP (Extreme Programming) -->
+        <div class="interactive-mod-card" data-modaltarget="xpModal" style="background: rgba(2,6,23,0.7); border: 1px solid var(--border-glass); border-radius: 16px; padding: 2rem; cursor: pointer; transition: all 0.3s ease;">
+          <div style="font-size: 2rem; color: var(--accent-purple); margin-bottom: 1rem;"><i class="fa-solid fa-code"></i></div>
+          <h3 style="color: #fff; font-family: var(--font-title); margin-bottom: 0.5rem;">Extreme Programming (XP)</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Enfocado en la excelencia técnica mediante Programación en Parejas (Pair Programming), TDD y refactorización constante.</p>
+          <span style="display: inline-block; margin-top: 1rem; font-size: 0.8rem; color: var(--accent-purple);">Toca para expandir ficha <i class="fa-solid fa-arrow-right"></i></span>
         </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-vial-circle-check"></i></div>
-          <h3>Leiva Dana</h3>
-          <span class="role-badge">Tester</span>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN DE DETALLE US-10: MARCO DE TRABAJO SCRUM -->
+    <section class="content-section" id="scrumSection">
+      <h2><i class="fa-solid fa-cubes"></i> US-10: Marco de Trabajo Scrum (Profundo)</h2>
+      <p>
+        Scrum es un marco ágil estructurado para desarrollar, entregar y sostener productos complejos mediante la colaboración, iteraciones con tiempo fijo (Sprints) y inspección continua.
+      </p>
+
+      <!-- Pestañas temáticas para Scrum -->
+      <div class="scrum-tabs-header">
+        <button class="scrum-tab-btn active" data-scrum="roles"><i class="fa-solid fa-users-gear"></i> Roles</button>
+        <button class="scrum-tab-btn" data-scrum="eventos"><i class="fa-solid fa-calendar-days"></i> Eventos</button>
+        <button class="scrum-tab-btn" data-scrum="artefactos"><i class="fa-solid fa-box-archive"></i> Artefactos</button>
+      </div>
+
+      <!-- Contenido de Roles -->
+      <div class="scrum-tab-content active" id="roles">
+        <div class="cards-grid">
+          <div class="detail-card">
+            <h3>Product Owner</h3>
+            <p>Maximiza el valor del producto gestionando, ordenando y clarificando el Product Backlog según las prioridades del negocio.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Scrum Master</h3>
+            <p>Facilita la agilidad ayudando a todos a entender la teoría, prácticas y reglas de Scrum, eliminando impedimentos externos.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Equipo de Desarrollo</h3>
+            <p>Profesionales multifuncionales y auto-organizados que ejecutan el trabajo técnico necesario para entregar un incremento de software utilizable.</p>
+          </div>
         </div>
-        <div class="team-card">
-          <div class="icon-wrapper"><i class="fa-solid fa-diagram-project"></i></div>
-          <h3>Resoagli Bautista</h3>
-          <span class="role-badge">Scrum Master y Programador</span>
+      </div>
+
+      <!-- Contenido de Eventos -->
+      <div class="scrum-tab-content" id="eventos" style="display: none;">
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Haz clic en cualquier evento del ciclo ágil para consultar su duración sugerida y objetivo principal:</p>
+        
+        <div class="interactive-timeline">
+          <button class="timeline-btn" data-info="<strong>Sprint Planning:</strong> Duración sugerida: 8 horas (para un Sprint de 4 semanas).<br>Definir el trabajo que se atenderá en el Sprint. Todo el equipo colabora para establecer el Objetivo del Sprint (Sprint Goal) y seleccionar las historias de usuario prioritarias.">Sprint Planning</button>
+          <button class="timeline-btn" data-info="<strong>Daily Scrum:</strong> Duración sugerida: 15 minutos diarios.<br>Inspeccionar el progreso hacia el Sprint Goal y adaptar el plan del día siguiente, sincronizando el trabajo de los desarrolladores.">Daily Scrum</button>
+          <button class="timeline-btn" data-info="<strong>Sprint Review:</strong> Duración sugerida: 4 horas (para un Sprint de 4 semanas).<br>Inspeccionar el incremento obtenido junto con los stakeholders y adaptar el Product Backlog si es necesario.">Sprint Review</button>
+          <button class="timeline-btn" data-info="<strong>Sprint Retrospective:</strong> Duración sugerida: 3 horas (para un Sprint de 4 semanas).<br>Planificar formas de aumentar la calidad y la efectividad, evaluando personas, relaciones y procesos.">Retrospective</button>
+        </div>
+        <div class="timeline-display-box" id="timelineDisplay">
+          <em>Selecciona un evento del ciclo superior para ver sus detalles operativos.</em>
+        </div>
+      </div>
+
+      <!-- Contenido de Artefactos -->
+      <div class="scrum-tab-content" id="artefactos" style="display: none;">
+        <div class="cards-grid">
+          <div class="detail-card">
+            <h3>Product Backlog</h3>
+            <p>Lista emergente y ordenada de todo lo que se conoce que es necesario en el producto. Es la única fuente de requisitos.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Sprint Backlog</h3>
+            <p>Conjunto de elementos del Product Backlog seleccionados para el Sprint, junto con el plan para entregar el incremento.</p>
+          </div>
+          <div class="detail-card">
+            <h3>Increment</h3>
+            <p>El peldaño de valor inspeccionable y utilizable que cumple con la Definición de Terminado (DoD) al final del Sprint.</p>
+          </div>
         </div>
       </div>
     </section>
+
+    <!-- SECCIÓN DE DETALLE US-11: KANBAN BOARD INTERACTIVO -->
+    <section class="content-section" id="kanbanSection">
+      <h2><i class="fa-solid fa-columns"></i> US-11: Tablero Kanban Interactivo (Draggable Cards)</h2>
+      <p>
+        Gestión de Procesos con Kanban y Límites WIP. Prueba de forma interactiva cómo funciona el límite de trabajo en proceso (WIP - Work in Progress) arrastrando o moviendo tarjetas didácticas entre las columnas del flujo.
+      </p>
+
+      <div class="kanban-simulator">
+        <div class="kanban-column" id="colTodo" ondragover="allowDrop(event)" ondrop="drop(event)">
+          <h3>Por Hacer</h3>
+          <div class="kanban-card" draggable="true" id="card1" ondragstart="drag(event)">
+            <strong>Diseñar Base de Datos</strong>
+            <p>Estructurar tablas relacionales en MySQL para usuarios.</p>
+          </div>
+          <div class="kanban-card" draggable="true" id="card2" ondragstart="drag(event)">
+            <strong>Configurar Servidor</strong>
+            <p>Instalar entorno XAMPP y dependencias PHP.</p>
+          </div>
+        </div>
+
+        <div class="kanban-column" id="colInProgress" ondragover="allowDrop(event)" ondrop="drop(event)">
+          <h3>En Proceso <span style="font-size: 0.75rem; color: var(--amber-neon, #ffbb00);">/ WIP: 2</span></h3>
+          <div class="kanban-card" draggable="true" id="card3" ondragstart="drag(event)">
+            <strong>Maquetar Header HTML</strong>
+            <p>Desarrollar barra superior responsiva.</p>
+          </div>
+        </div>
+
+        <div class="kanban-column" id="colDone" ondragover="allowDrop(event)" ondrop="drop(event)">
+          <h3>Hecho (Done)</h3>
+          <div class="kanban-card" draggable="true" id="card4" ondragstart="drag(event)">
+            <strong>Estructura Inicial</strong>
+            <p>Creación de carpetas y repositorios Git.</p>
+          </div>
+        </div>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 1rem;">Puedes arrastrar las tarjetas con el mouse entre las columnas o interactuar con el flujo dinámicamente.</p>
+    </section>
+
   </main>
+
+  <!-- MODALES DE AMPLIACIÓN (US-09 / US-08) -->
+  <div class="custom-modal-overlay" id="customModalOverlay">
+    <div class="custom-modal" id="customModalBox">
+      <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      <div id="modalBodyContent">
+        <!-- Dinámico mediante JS -->
+      </div>
+    </div>
+  </div>
 
   <footer class="footer">
     <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- Script JavaScript Externo -->
+  <!-- Archivo JavaScript Externo Independiente -->
   <script src="metodologias.js"></script>
 </body>
 </html>

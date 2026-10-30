@@ -41,53 +41,49 @@
     </div>
     <ul class="drawer-menu">
       <li>
-        <a href="index.html" class="active">
+        <a href="../index.html">
           <i class="fa-solid fa-house"></i>
           <span>INICIO</span>
         </a>
       </li>
       <li>
-        <a href="gestion_calidad/gestion.html">
+        <a href="../gestion_calidad/gestion.html" class="active">
           <i class="fa-solid fa-shield-halved"></i>
           <span>GESTIÓN DE LA CALIDAD</span>
         </a>
       </li>
-
       <li>
-        <a href="procesos_desarrollo/proceso.html">
+        <a href="../procesos_desarrollo/proceso.html">
           <i class="fa-solid fa-code-branch"></i>
           <span>PROCESOS DE DESARROLLO</span>
         </a>
       </li>
-      <!-- Modelos Tradicionales removido -->
       <li>
-        <a href="metodologias_agiles/metodologias.html">
+        <a href="../metodologias_agiles/metodologias.html">
           <i class="fa-solid fa-bolt"></i>
           <span>METODOLOGÍAS ÁGILES</span>
         </a>
       </li>
-
       <li>
-        <a href="recursos_aprendizajes/recurso.html">
+        <a href="../recursos_aprendizajes/recurso.html">
           <i class="fa-solid fa-spell-check"></i>
           <span>RECURSOS Y APRENDIZAJE</span>
         </a>
       </li>
-  
       <li>
-        <a href="herramientas_interactivas/herramientas.html">
+        <a href="../herramientas_interactivas/herramientas.html">
           <i class="fa-solid fa-laptop-code"></i>
           <span>HERRAMIENTAS INTERACTIVAS</span>
         </a>
       </li>
-
-        <a href="sobre_nosotros/sobre_nosotros.html">
+      <li>
+        <a href="../sobre_nosotros/sobre_nosotros.html">
           <i class="fa-solid fa-users"></i>
           <span>SOBRE NOSOTROS</span>
         </a>
       </li>
       <li>
-        <a href="formulario_contacto/contacto.html">
+        <a href="../formulario_contacto/contacto.html">
           <i class="fa-solid fa-paper-plane"></i>
           <span>CONTACTO</span>
         </a>
@@ -95,6 +91,7 @@
     </ul>
   </nav>
   <div class="drawer-overlay" id="drawerOverlay"></div>
+
   <!-- ========================================== -->
   <!-- CONTENEDOR PRINCIPAL                       -->
   <!-- ========================================== -->
@@ -236,7 +233,6 @@
       </div>
 
       <div class="grid-cards">
-        
         <article class="info-card">
           <div class="card-top">
             <i class="fa-solid fa-cubes card-icon"></i>
@@ -269,7 +265,6 @@
           </p>
           <div class="card-footer-tag">QA Level 03</div>
         </article>
-
       </div>
     </section>
 
@@ -281,11 +276,9 @@
       </div>
 
       <div class="grid-two-columns">
-        
         <!-- Tarjeta 1: Caja Negra (Flip Card) -->
         <div class="flip-card">
           <div class="flip-card-inner">
-            <!-- Frente de la Tarjeta -->
             <div class="flip-card-front type-card black-box">
               <div class="type-header">
                 <i class="fa-solid fa-box"></i>
@@ -304,7 +297,6 @@
               </div>
             </div>
 
-            <!-- Dorso de la Tarjeta (Gráfico Conceptual Caja Negra) -->
             <div class="flip-card-back type-card black-box-back">
               <div class="type-header">
                 <i class="fa-solid fa-chart-pie"></i>
@@ -330,7 +322,6 @@
         <!-- Tarjeta 2: Caja Blanca (Flip Card) -->
         <div class="flip-card">
           <div class="flip-card-inner">
-            <!-- Frente de la Tarjeta -->
             <div class="flip-card-front type-card white-box">
               <div class="type-header">
                 <i class="fa-solid fa-box-open"></i>
@@ -349,7 +340,6 @@
               </div>
             </div>
 
-            <!-- Dorso de la Tarjeta (Gráfico Conceptual Caja Blanca) -->
             <div class="flip-card-back type-card white-box-back">
               <div class="type-header">
                 <i class="fa-solid fa-code-branch"></i>
@@ -374,10 +364,133 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- US-04: SECCIÓN "HERRAMIENTAS DE CALIDAD"   -->
+    <!-- ========================================== -->
+    <section class="section-block">
+      <div class="section-title">
+        <i class="fa-solid fa-toolbox"></i>
+        <h2>US-04: Herramientas de Calidad y Gestión (Grilla Completa)</h2>
+      </div>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+        Catálogo extendido de herramientas clave para el seguimiento de defectos, análisis estático, gestión de pruebas y automatización. Usa los filtros para ver elementos individuales o todos a la vez:
+      </p>
+
+      <!-- Botones de Filtrado Interactivo (JS) -->
+      <div class="filter-buttons" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+        <button class="filter-btn active" data-filter="all" style="background: rgba(0, 242, 254, 0.2); border: 1px solid var(--accent-cyan); color: #ffffff; padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-title); font-weight: 700;">Todas</button>
+        <button class="filter-btn" data-filter="bugtracker" style="background: transparent; border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-title); font-weight: 700;">Bug Trackers</button>
+        <button class="filter-btn" data-filter="linters" style="background: transparent; border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-title); font-weight: 700;">Linters / Análisis Estático</button>
+        <button class="filter-btn" data-filter="testmgmt" style="background: transparent; border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-title); font-weight: 700;">Test Management</button>
+        <button class="filter-btn" data-filter="automation" style="background: transparent; border: 1px solid var(--border-glass); color: var(--text-muted); padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-title); font-weight: 700;">Automation Testing</button>
+      </div>
+
+      <!-- Grilla Ampliada de Tarjetas de Herramientas (Filtrables) -->
+      <div class="grid-cards tools-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        
+        <!-- Herramienta 1: Bug Tracker -->
+        <article class="info-card tool-card" data-category="bugtracker">
+          <div class="card-top">
+            <i class="fa-solid fa-bug card-icon" style="color: var(--laser-gold);"></i>
+            <h3>Jira / Trello</h3>
+          </div>
+          <p>
+            Plataformas líderes de gestión de incidencias y tableros ágiles para registrar, asignar tareas y monitorear el ciclo de vida completo de los bugs de software.
+          </p>
+          <div class="card-footer-tag" style="border-color: var(--laser-gold); color: var(--laser-gold);">Bug Trackers</div>
+        </article>
+
+        <!-- Herramienta 2: Bug Tracker -->
+        <article class="info-card tool-card" data-category="bugtracker">
+          <div class="card-top">
+            <i class="fa-solid fa-triangle-exclamation card-icon" style="color: var(--laser-gold);"></i>
+            <h3>GitHub Issues / GitLab</h3>
+          </div>
+          <p>
+            Sistemas integrados de seguimiento de errores directamente vinculados a los repositorios de código fuente y pull requests del equipo de desarrollo.
+          </p>
+          <div class="card-footer-tag" style="border-color: var(--laser-gold); color: var(--laser-gold);">Bug Trackers</div>
+        </article>
+
+        <!-- Herramienta 3: Linters -->
+        <article class="info-card tool-card" data-category="linters">
+          <div class="card-top">
+            <i class="fa-solid fa-code card-icon" style="color: var(--accent-cyan);"></i>
+            <h3>ESLint / Prettier</h3>
+          </div>
+          <p>
+            Herramientas de análisis estático de código para JavaScript/TypeScript enfocadas en estandarizar la sintaxis y detectar errores lógicos antes de compilar.
+          </p>
+          <div class="card-footer-tag">Linters / Análisis Estático</div>
+        </article>
+
+        <!-- Herramienta 4: Linters -->
+        <article class="info-card tool-card" data-category="linters">
+          <div class="card-top">
+            <i class="fa-solid fa-shield-halved card-icon" style="color: var(--accent-cyan);"></i>
+            <h3>SonarQube</h3>
+          </div>
+          <p>
+            Plataforma exhaustiva para la inspección continua de la calidad del código, midiendo deuda técnica, vulnerabilidades de seguridad y duplicidades.
+          </p>
+          <div class="card-footer-tag">Linters / Análisis Estático</div>
+        </article>
+
+        <!-- Herramienta 5: Test Management -->
+        <article class="info-card tool-card" data-category="testmgmt">
+          <div class="card-top">
+            <i class="fa-solid fa-vial card-icon" style="color: var(--accent-purple);"></i>
+            <h3>TestRail</h3>
+          </div>
+          <p>
+            Software especializado en gestión de pruebas para planificar escenarios de QA, organizar carpetas de test cases y registrar resultados de ejecución.
+          </p>
+          <div class="card-footer-tag" style="border-color: var(--accent-purple); color: var(--accent-purple);">Test Management</div>
+        </article>
+
+        <!-- Herramienta 6: Test Management -->
+        <article class="info-card tool-card" data-category="testmgmt">
+          <div class="card-top">
+            <i class="fa-solid fa-network-wired card-icon" style="color: var(--accent-purple);"></i>
+            <h3>Postman</h3>
+          </div>
+          <p>
+            Entorno de pruebas y desarrollo enfocado en la validación funcional, contrato y rendimiento de servicios web y APIs REST.
+          </p>
+          <div class="card-footer-tag" style="border-color: var(--accent-purple); color: var(--accent-purple);">Test Management</div>
+        </article>
+
+        <!-- Herramienta 7: Automation Testing -->
+        <article class="info-card tool-card" data-category="automation">
+          <div class="card-top">
+            <i class="fa-solid fa-robot card-icon" style="color: #4ade80;"></i>
+            <h3>Selenium / Cypress</h3>
+          </div>
+          <p>
+            Frameworks de automatización de pruebas end-to-end (E2E) para interfaces web, permitiendo simular interacciones reales de usuarios en múltiples navegadores.
+          </p>
+          <div class="card-footer-tag" style="border-color: #4ade80; color: #4ade80;">Automation Testing</div>
+        </article>
+
+        <!-- Herramienta 8: Automation Testing -->
+        <article class="info-card tool-card" data-category="automation">
+          <div class="card-top">
+            <i class="fa-solid fa-bolt card-icon" style="color: #4ade80;"></i>
+            <h3>Jest / JUnit</h3>
+          </div>
+          <p>
+            Librerías de pruebas unitarias robustas para entornos JavaScript y Java, optimizadas para verificar la precisión lógica de componentes aislados de código.
+          </p>
+          <div class="card-footer-tag" style="border-color: #4ade80; color: #4ade80;">Automation Testing</div>
+        </article>
 
       </div>
     </section>
 
+  </main>
 
   <footer class="footer">
     <p>&copy; 2026 67 Patrol - Portal Educativo de Ingeniería de Software. Todos los derechos reservados.</p>

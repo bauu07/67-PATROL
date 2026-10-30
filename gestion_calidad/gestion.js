@@ -1,32 +1,49 @@
 /* ========================================================== */
-/* LÓGICA DE INTERACTIVIDAD (gestion.js)                      */
+/* SCRIPT DE GESTIÓN, TÉCNICAS Y HERRAMIENTAS (gestion.js)     */
 /* ========================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. Control del Menú Lateral Desplegable (Drawer) ---
+  // --- 1. Control del Menú Lateral (Drawer) ---
   const btnOpenDrawer = document.getElementById('btnOpenDrawer');
-  const btnCloseDrawer = document.getElementById('btnCloseDrawer');
-  const menuDrawer = document.getElementById('menuDrawer');
+  const closeDrawer = document.getElementById('closeDrawer');
+  const navDrawer = document.getElementById('navDrawer');
   const drawerOverlay = document.getElementById('drawerOverlay');
 
-  const openMenu = () => {
-    menuDrawer.classList.add('open');
-    drawerOverlay.classList.add('active');
-  };
-
-  const closeMenu = () => {
-    menuDrawer.classList.remove('open');
-    drawerOverlay.classList.remove('active');
-  };
-
-  if (btnOpenDrawer && btnCloseDrawer && menuDrawer && drawerOverlay) {
-    btnOpenDrawer.addEventListener('click', openMenu);
-    btnCloseDrawer.addEventListener('click', closeMenu);
-    drawerOverlay.addEventListener('click', closeMenu);
+  if (btnOpenDrawer && navDrawer) {
+    btnOpenDrawer.addEventListener('click', () => {
+      navDrawer.classList.add('open');
+      if (drawerOverlay) drawerOverlay.classList.add('active');
+    });
   }
 
-  // --- 2. Control de Pestañas (Tabs) para ISO 9126 vs ISO 25000 ---
+  if (closeDrawer && navDrawer) {
+    closeDrawer.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      if (drawerOverlay) drawerOverlay.classList.remove('active');
+    });
+  }
+
+  if (drawerOverlay) {
+    drawerOverlay.addEventListener('click', () => {
+      navDrawer.classList.remove('open');
+      if (drawerOverlay) drawerOverlay.classList.remove('active');
+    });
+  }
+
+  // --- 2. Reloj en Tiempo Real (UTC) ---
+  const liveClock = document.getElementById('liveClock');
+  if (liveClock) {
+    function updateClock() {
+      const now = new Date();
+      const utcString = now.toUTCString().slice(17, 25) + ' UTC';
+      liveClock.textContent = utcString;
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  // --- 3. Sistema de Pestañas (Tabs) para Estándares ISO ---
   const tabButtons = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
@@ -34,12 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', () => {
       const targetTab = button.getAttribute('data-tab');
 
-      // Remover clases activas de botones
+      // Remover clase active de todos los botones y contenidos
       tabButtons.forEach(btn => {
         btn.classList.remove('active');
         btn.style.background = 'transparent';
         btn.style.borderColor = 'var(--border-glass)';
         btn.style.color = 'var(--text-muted)';
+      });
+
+      tabContents.forEach(content => {
+        content.style.display = 'none';
+        content.classList.remove('active');
       });
 
       // Activar botón seleccionado
@@ -48,18 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
       button.style.borderColor = targetTab === 'iso9126' ? 'var(--electric-blue)' : 'var(--laser-gold)';
       button.style.color = '#ffffff';
 
-      // Ocultar/Mostrar contenidos de forma dinámica
-      tabContents.forEach(content => {
-        if (content.id === targetTab) {
-          content.style.display = 'block';
-        } else {
-          content.style.display = 'none';
-        }
-      });
+      // Mostrar contenido correspondiente
+      const activeContent = document.getElementById(targetTab);
+      if (activeContent) {
+        activeContent.style.display = 'block';
+        activeContent.classList.add('active');
+      }
     });
   });
 
-  // --- 3. Control de Tarjetas Giratorias (Flip Cards - Caja Negra y Blanca) ---
+  // --- 4. Control de Tarjetas Giratorias 3D (Flip Cards) ---
   const flipCards = document.querySelectorAll('.flip-card');
   flipCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -67,16 +87,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- 4. Reloj Digital en Vivo en la Barra Superior ---
-  const liveClock = document.getElementById('liveClock');
-  if (liveClock) {
-    setInterval(() => {
-      const now = new Date();
-      const hours = String(now.getUTCHours()).padStart(2, '0');
-      const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-      const seconds = String(now.getUTCSeconds()).padStart(2, '0');
-      liveClock.textContent = `${hours}:${minutes}:${seconds} UTC`;
-    }, 1000);
-  }
+  // --- 5. Sistema de Filtrado para la US-04 (Herramientas de Calidad) ---
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const toolCards = document.querySelectorAll('.tool-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Cambiar estilos activos de los botones de filtro
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'transparent';
+        b.style.borderColor = 'var(--border-glass)';
+        b.style.color = 'var(--text-muted)';
+      });
+
+      btn.classList.add('active');
+      btn.style.background = 'rgba(0, 242, 254, 0.2)';
+      btn.style.borderColor = 'var(--accent-cyan)';
+      btn.style.color = '#ffffff';
+
+      const category = btn.getAttribute('data-filter');
+
+      // Mostrar u ocultar las tarjetas según corresponda (Todas o Individuales)
+      toolCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 
 });
